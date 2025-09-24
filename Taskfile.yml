@@ -6,9 +6,11 @@ tasks:
   default:
     cmds:
       - task: datendienst
-      - task: lobid
-      - task: filter
-      - task: transform
+      - task: lobid-download
+      - task: lobid-filter
+      - task: lobid-extract
+      - task: wikidata
+      - task: output
     
   datendienst:
     desc: Download von GND-IDs aus dem DLA Datendienst
@@ -20,46 +22,77 @@ tasks:
     preconditions:
       - command -v curl
 
-  lobid:
+  lobid-download:
     desc: Bulk-Download der GND als JSON-Lines über lobid-gnd
     dir: data
     cmds:
-      # - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:Work&format=jsonl' | gzip > lobid-work.jsonl.gz
-      - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:Person&format=jsonl' | gzip > lobid-person.jsonl.gz
-      - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:CorporateBody&format=jsonl' | gzip > lobid-corporate.jsonl.gz
+      # - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:Work&format=jsonl' | gzip > lobid-download-ak.jsonl.gz
+      - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:Person&format=jsonl' | gzip > lobid-download-pe.jsonl.gz
+      - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:CorporateBody&format=jsonl' | gzip > lobid-download-ks.jsonl.gz
     preconditions:
       - command -v curl
       - command -v gzip
 
-  filter:
+  lobid-filter:
     desc: GND-Download reduzieren auf im DLA verwendete GND-IDs
     dir: data
     cmds:
-      # - python3 ../filter.py lobid-work.jsonl.gz dla-gnd-ak.txt | gzip > filtered-work.jsonl.gz
-      - python3 ../filter.py lobid-person.jsonl.gz dla-gnd-pe.txt | gzip > filtered-person.jsonl.gz
-      - python3 ../filter.py lobid-corporate.jsonl.gz dla-gnd-ks.txt | gzip > filtered-corporate.jsonl.gz
+      # - python3 ../lobid-filter.py lobid-download-ak.jsonl.gz dla-gnd-ak.txt | gzip > lobid-filtered-ak.jsonl.gz
+      - python3 ../lobid-filter.py lobid-download-pe.jsonl.gz dla-gnd-pe.txt | gzip > lobid-filtered-pe.jsonl.gz
+      - python3 ../lobid-filter.py lobid-download-ks.jsonl.gz dla-gnd-ks.txt | gzip > lobid-filtered-ks.jsonl.gz
     sources:
-      - lobid-*.jsonl.gz
+      - lobid-download-*.jsonl.gz
       - dla-gnd-*.txt
-      - ../filter.py
+      - ../lobid-filter.py
     generates:
-      - filtered-*.jsonl.gz
+      - lobid-filtered-*.jsonl.gz
     preconditions:
       - command -v python3
       - command -v gzip
 
-  transform:
-    desc: Gefilterte Daten aufbereiten
+  lobid-extract:
+    desc: Gewünschte Daten in einzelne Tabellen extrahieren
     dir: data
     cmds:
-      # - python3 ../transform_work.py filtered-work.jsonl.gz > transformed-work.jsonl
-      - python3 ../transform_person.py filtered-person.jsonl.gz > transformed-person.jsonl
-      - python3 ../transform_corporate.py filtered-corporate.jsonl.gz > transformed-corporate.jsonl
+      - zcat lobid-filtered-ks.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' > ks-gnd-wikidata.tsv
+      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' > pe-gnd-wikidata.tsv
     sources:
-      - filtered-*.jsonl.gz
-      - ../transform_*.py
+      - lobid-filtered-*.jsonl.gz
     generates:
-      - transformed-*.jsonl
+      - ./*.tsv
+
+  wikidata:
+    desc: (TODO) Mit den aus lobid-extract ermittelten Wikidata IDs den Wikidata Query Service abfragen
+    dir: data
+    cmds:
+      - cut -f 2 ks-gnd-wikidata.tsv | sort | uniq > dla-wikidata-ks.txt
+      - cut -f 2 pe-gnd-wikidata.tsv | sort | uniq > dla-wikidata-pe.txt
+    sources:
+      - ./*-gnd-wikidata.tsv
+    generates:
+      - dla-wikidata-*.txt
     preconditions:
-      - command -v python3
-      - command -v gzip
+      - command -v jq
+
+  output:
+    desc: Plausibilitätsprüfung und ggf. Kopie der Daten in das Verzeichnis output
+    dir: data
+    cmds:
+      - |
+        for f in *.tsv; do
+          old="$(wc -l < ../output/${f} || echo 0)"
+          new="$(wc -l < ${f})"
+          if ((new+10 >= old));
+          then
+            echo "$f $((new-old))"
+          else
+            echo 1>&2 "Generierter Cache für ${f} scheint zu klein zu sein! Bitte manuell prüfen."
+            echo 1>&2 "Differenz: $((new-old))"
+            exit 2
+          fi
+        done
+      - cp *.tsv ../output/
+    sources:
+      - ./*.tsv
+    generates:
+      - ../output/*.tsv
