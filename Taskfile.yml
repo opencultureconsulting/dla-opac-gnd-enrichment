@@ -54,8 +54,8 @@ tasks:
     desc: Gewünschte Daten in einzelne Tabellen extrahieren
     dir: data
     cmds:
-      - zcat lobid-filtered-ks.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' > ks-gnd-wikidata.tsv
-      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' > pe-gnd-wikidata.tsv
+      - zcat lobid-filtered-ks.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | sort | uniq > ks-gnd-wikidata.tsv
+      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | sort | uniq > pe-gnd-wikidata.tsv
     sources:
       - lobid-filtered-*.jsonl.gz
     generates:
