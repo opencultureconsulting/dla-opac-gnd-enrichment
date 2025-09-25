@@ -12,8 +12,8 @@ jobs:
       run: task
     - name: git commit and push
       run: |-
-        git config user.name "Automated"
+        git config user.name "GitHub Actions"
         git config user.email "actions@users.noreply.github.com"
         git add output
-        git commit -m "latest change: $(date -u)" || exit 0
+        git commit -m "automatisiert" || exit 0
         git push
