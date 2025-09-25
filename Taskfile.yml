@@ -16,9 +16,9 @@ tasks:
     desc: Download von GND-IDs aus dem DLA Datendienst
     dir: data
     cmds:
-      # - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:AK&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 > dla-gnd-ak.txt
-      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:KS&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | sort | uniq > dla-gnd-ks.txt
-      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:PE&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | sort | uniq > dla-gnd-pe.txt
+      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:AK&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | LC_ALL=POSIX sort -u > dla-gnd-ak.txt
+      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:KS&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | LC_ALL=POSIX sort -u > dla-gnd-ks.txt
+      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:PE&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | LC_ALL=POSIX sort -u > dla-gnd-pe.txt
     preconditions:
       - command -v curl
 
@@ -26,7 +26,7 @@ tasks:
     desc: Bulk-Download der GND als JSON-Lines über lobid-gnd
     dir: data
     cmds:
-      # - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:Work&format=jsonl' | gzip > lobid-download-ak.jsonl.gz
+      - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:Work&format=jsonl' | gzip > lobid-download-ak.jsonl.gz
       - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:Person&format=jsonl' | gzip > lobid-download-pe.jsonl.gz
       - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:CorporateBody&format=jsonl' | gzip > lobid-download-ks.jsonl.gz
     preconditions:
@@ -37,7 +37,7 @@ tasks:
     desc: GND-Download reduzieren auf im DLA verwendete GND-IDs
     dir: data
     cmds:
-      # - python3 ../lobid-filter.py lobid-download-ak.jsonl.gz dla-gnd-ak.txt | gzip > lobid-filtered-ak.jsonl.gz
+      - python3 ../lobid-filter.py lobid-download-ak.jsonl.gz dla-gnd-ak.txt | gzip > lobid-filtered-ak.jsonl.gz
       - python3 ../lobid-filter.py lobid-download-pe.jsonl.gz dla-gnd-pe.txt | gzip > lobid-filtered-pe.jsonl.gz
       - python3 ../lobid-filter.py lobid-download-ks.jsonl.gz dla-gnd-ks.txt | gzip > lobid-filtered-ks.jsonl.gz
     sources:
@@ -54,8 +54,9 @@ tasks:
     desc: Gewünschte Daten in einzelne Tabellen extrahieren
     dir: data
     cmds:
-      - zcat lobid-filtered-ks.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | sort | uniq > ks-gnd-wikidata.tsv
-      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | sort | uniq > pe-gnd-wikidata.tsv
+      - zcat lobid-filtered-ak.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > ak-gnd-wikidata.tsv
+      - zcat lobid-filtered-ks.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > ks-gnd-wikidata.tsv
+      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > pe-gnd-wikidata.tsv
     sources:
       - lobid-filtered-*.jsonl.gz
     generates:
@@ -65,8 +66,9 @@ tasks:
     desc: (TODO) Mit den aus lobid-extract ermittelten Wikidata IDs den Wikidata Query Service abfragen
     dir: data
     cmds:
-      - cut -f 2 ks-gnd-wikidata.tsv | sort | uniq > dla-wikidata-ks.txt
-      - cut -f 2 pe-gnd-wikidata.tsv | sort | uniq > dla-wikidata-pe.txt
+      - cut -f 2 ak-gnd-wikidata.tsv | LC_ALL=POSIX sort -u > dla-wikidata-ak.txt
+      - cut -f 2 ks-gnd-wikidata.tsv | LC_ALL=POSIX sort -u > dla-wikidata-ks.txt
+      - cut -f 2 pe-gnd-wikidata.tsv | LC_ALL=POSIX sort -u > dla-wikidata-pe.txt
     sources:
       - ./*-gnd-wikidata.tsv
     generates:
