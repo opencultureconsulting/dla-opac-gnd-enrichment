@@ -75,12 +75,18 @@ tasks:
       - lobid-*.tsv
 
   wikidata:
-    desc: (TODO) Mit den aus lobid-extract ermittelten Wikidata IDs den Wikidata Query Service abfragen
+    desc: Mit den aus lobid-extract ermittelten Wikidata IDs den Wikidata Query Service abfragen
     dir: data
     cmds:
       - cut -f 2 lobid-wikidata-ak.tsv | LC_ALL=POSIX sort -u > qid-ak.txt
       - cut -f 2 lobid-wikidata-ks.tsv | LC_ALL=POSIX sort -u > qid-ks.txt
       - cut -f 2 lobid-wikidata-pe.tsv | LC_ALL=POSIX sort -u > qid-pe.txt
+      - python3 ../wikidata-extract.py qid-ak.txt ak P18,P109,P856,P2639
+      - cd ak; for f in *.tsv; do mv ${f} ../wikidata-${f%.tsv}-ak.tsv; done; cd ..; rm -r ak
+      - python3 ../wikidata-extract.py qid-ks.txt ak P18,P109,P856,P2639
+      - cd ks; for f in *.tsv; do mv ${f} ../wikidata-${f%.tsv}-ks.tsv; done; cd ..; rm -r ks
+      - python3 ../wikidata-extract.py qid-pe.txt ak P18,P109,P856,P2639
+      - cd pe; for f in *.tsv; do mv ${f} ../wikidata-${f%.tsv}-pe.tsv; done; cd ..; rm -r pe
     sources:
       - lobid-wikidata-*.tsv
       - ../wikidata-extract.py
