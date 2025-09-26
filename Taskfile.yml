@@ -16,9 +16,9 @@ tasks:
     desc: Download von GND-IDs aus dem DLA Datendienst
     dir: data
     cmds:
-      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:AK&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | LC_ALL=POSIX sort -u > dla-gnd-ak.txt
-      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:KS&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | LC_ALL=POSIX sort -u > dla-gnd-ks.txt
-      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:PE&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | LC_ALL=POSIX sort -u > dla-gnd-pe.txt
+      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:AK&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | LC_ALL=POSIX sort -u > gnd-ak.txt
+      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:KS&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | LC_ALL=POSIX sort -u > gnd-ks.txt
+      - curl --silent --compressed 'https://dataservice.dla-marbach.de/v1/records?q=gnd_id_mv:%2A%20AND%20source:PE&fields=gnd_id_mv&format=jsonl' | cut -d '"' -f 4 | LC_ALL=POSIX sort -u > gnd-pe.txt
     preconditions:
       - command -v curl
 
@@ -26,9 +26,9 @@ tasks:
     desc: Bulk-Download der GND als JSON-Lines über lobid-gnd
     dir: data
     cmds:
-      - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:Work&format=jsonl' | gzip > lobid-download-ak.jsonl.gz
-      - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:Person&format=jsonl' | gzip > lobid-download-pe.jsonl.gz
-      - curl -A "DLA Marbach OPAC Enrichment" --silent --compressed 'https://lobid.org/gnd/search?q=type:CorporateBody&format=jsonl' | gzip > lobid-download-ks.jsonl.gz
+      - curl -A "DLA Marbach OPAC Enrichment; mailto:dla@felixlohmeier.de" --silent --compressed 'https://lobid.org/gnd/search?q=type:Work&format=jsonl' | gzip > lobid-download-ak.jsonl.gz
+      - curl -A "DLA Marbach OPAC Enrichment; mailto:dla@felixlohmeier.de" --silent --compressed 'https://lobid.org/gnd/search?q=type:Person&format=jsonl' | gzip > lobid-download-pe.jsonl.gz
+      - curl -A "DLA Marbach OPAC Enrichment; mailto:dla@felixlohmeier.de" --silent --compressed 'https://lobid.org/gnd/search?q=type:CorporateBody&format=jsonl' | gzip > lobid-download-ks.jsonl.gz
     preconditions:
       - command -v curl
       - command -v gzip
@@ -37,12 +37,12 @@ tasks:
     desc: GND-Download reduzieren auf im DLA verwendete GND-IDs
     dir: data
     cmds:
-      - python3 ../lobid-filter.py lobid-download-ak.jsonl.gz dla-gnd-ak.txt | gzip > lobid-filtered-ak.jsonl.gz
-      - python3 ../lobid-filter.py lobid-download-pe.jsonl.gz dla-gnd-pe.txt | gzip > lobid-filtered-pe.jsonl.gz
-      - python3 ../lobid-filter.py lobid-download-ks.jsonl.gz dla-gnd-ks.txt | gzip > lobid-filtered-ks.jsonl.gz
+      - python3 ../lobid-filter.py lobid-download-ak.jsonl.gz gnd-ak.txt | gzip > lobid-filtered-ak.jsonl.gz
+      - python3 ../lobid-filter.py lobid-download-pe.jsonl.gz gnd-pe.txt | gzip > lobid-filtered-pe.jsonl.gz
+      - python3 ../lobid-filter.py lobid-download-ks.jsonl.gz gnd-ks.txt | gzip > lobid-filtered-ks.jsonl.gz
     sources:
       - lobid-download-*.jsonl.gz
-      - dla-gnd-*.txt
+      - gnd-*.txt
       - ../lobid-filter.py
     generates:
       - lobid-filtered-*.jsonl.gz
@@ -54,25 +54,39 @@ tasks:
     desc: Gewünschte Daten in einzelne Tabellen extrahieren
     dir: data
     cmds:
-      - zcat lobid-filtered-ak.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > ak-gnd-wikidata.tsv
-      - zcat lobid-filtered-ks.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > ks-gnd-wikidata.tsv
-      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > pe-gnd-wikidata.tsv
+      # Wikidata
+      - zcat lobid-filtered-ak.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-wikidata-ak.tsv
+      - zcat lobid-filtered-ks.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-wikidata-ks.tsv
+      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-wikidata-pe.tsv
+      # Wikipedia
+      - zcat lobid-filtered-ak.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://de.wikipedia.org/wiki/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-wikipedia-ak.tsv
+      - zcat lobid-filtered-ks.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://de.wikipedia.org/wiki/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-wikipedia-ks.tsv
+      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://de.wikipedia.org/wiki/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-wikipedia-pe.tsv
+      # Commons (depiction)
+      - zcat lobid-filtered-ks.jsonl.gz | jq -r 'try .gndIdentifier as $id | .depiction[].id | match("https://commons.wikimedia.org/wiki/Special:FilePath/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-commons-ks.tsv
+      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .depiction[].id | match("https://commons.wikimedia.org/wiki/Special:FilePath/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-commons-pe.tsv
+      # Filmportal
+      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://www.filmportal.de/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-filmportal-pe.tsv
+      # Deutsche Biographie
+      - zcat lobid-filtered-pe.jsonl.gz | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://www.deutsche-biographie.de/(.*)").captures[].string | [$id, .] | @tsv' | LC_ALL=POSIX sort -u > lobid-deutsche-biographie-pe.tsv
     sources:
       - lobid-filtered-*.jsonl.gz
     generates:
-      - ./*.tsv
+      - lobid-*.tsv
 
   wikidata:
     desc: (TODO) Mit den aus lobid-extract ermittelten Wikidata IDs den Wikidata Query Service abfragen
     dir: data
     cmds:
-      - cut -f 2 ak-gnd-wikidata.tsv | LC_ALL=POSIX sort -u > dla-wikidata-ak.txt
-      - cut -f 2 ks-gnd-wikidata.tsv | LC_ALL=POSIX sort -u > dla-wikidata-ks.txt
-      - cut -f 2 pe-gnd-wikidata.tsv | LC_ALL=POSIX sort -u > dla-wikidata-pe.txt
+      - cut -f 2 lobid-wikidata-ak.tsv | LC_ALL=POSIX sort -u > qid-ak.txt
+      - cut -f 2 lobid-wikidata-ks.tsv | LC_ALL=POSIX sort -u > qid-ks.txt
+      - cut -f 2 lobid-wikidata-pe.tsv | LC_ALL=POSIX sort -u > qid-pe.txt
     sources:
-      - ./*-gnd-wikidata.tsv
+      - lobid-wikidata-*.tsv
+      - ../wikidata-extract.py
     generates:
-      - dla-wikidata-*.txt
+      - qid-*.txt
+      - wikidata-*.tsv
     preconditions:
       - command -v jq
 
