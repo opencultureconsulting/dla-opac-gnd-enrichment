@@ -7,6 +7,7 @@ import sys
 import time
 import os
 import json
+import argparse
 import urllib.request
 import urllib.parse
 import urllib.error
@@ -57,7 +58,7 @@ def run_query(sparql):
             time.sleep(wait)
     raise RuntimeError("SPARQL request failed after retries")
 
-def main(id_file, out_dir, properties=None):
+def main(id_file, out_dir, properties):
     with open(id_file, "r", encoding="utf-8") as f:
         raw = [line.strip() for line in f]
     # Nur IDs akzeptieren, die mit Q beginnen
@@ -127,10 +128,10 @@ def main(id_file, out_dir, properties=None):
             fh.close()
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("Usage: python3 wikidata-extract.py input_ids.txt out_dir P18,P109")
-        sys.exit(1)
-    props = None
-    if len(sys.argv) >= 4:
-        props = [p.strip().upper() for p in sys.argv[3].split(",") if p.strip()]
-    main(sys.argv[1], sys.argv[2], props)
+    parser = argparse.ArgumentParser(description="Batch SPARQL extract from Wikidata")
+    parser.add_argument("id_file", help="Text file with one ID per line (Q42)")
+    parser.add_argument("out_dir", help="Output directory for TSV files")
+    parser.add_argument("properties", help="Comma-separated properties (e.g. P18,P109)")
+    args = parser.parse_args()
+    props = [p.strip().upper() for p in args.properties.split(",") if p.strip()]
+    main(args.id_file, args.out_dir, props)
