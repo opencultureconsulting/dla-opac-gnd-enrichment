@@ -82,11 +82,8 @@ def main(id_file, out_dir, properties):
     # Ausgabe-Dateien aus properties erstellen
     prop_files = {p: os.path.join(out_dir, f"{p}.tsv") for p in properties}
 
-    # Offene Filehandles
-    handles = {}
-    for key, path in prop_files.items():
-        fh = open(path, "w", encoding="utf-8")
-        handles[key] = fh
+    # Ergebnisse pro Property in einem Set sammeln (qid, val)
+    results = {p: set() for p in properties}
 
     try:
         for batch in chunks(ids, BATCH_SIZE):
@@ -118,14 +115,28 @@ def main(id_file, out_dir, properties):
                         if prop in ("P18", "P109"):
                             val = val.replace('http://commons.wikimedia.org/wiki/Special:FilePath/','')
                         if val:
-                            handles[prop].write(f"{qid}\t{val}\n")
+                            results[prop].add((qid, val))
 
             processed += len(batch)
             print(f"Processed {processed}/{total}", file=sys.stderr)
             time.sleep(SLEEP_BETWEEN)
     finally:
-        for fh in handles.values():
-            fh.close()
+        # pro Property nach qid (nur Zahlen) sortieren und in die Datei schreiben
+        def _qid_sort_key(item):
+            qid = item[0]
+            num = qid[1:]
+            return (0, int(num))
+
+        for prop in properties:
+            if not results[prop]:
+                continue
+            path = prop_files[prop]
+            try:
+                with open(path, "w", encoding="utf-8") as fh:
+                    for qid, val in sorted(results[prop], key=_qid_sort_key):
+                        fh.write(f"{qid}\t{val}\n")
+            except OSError as e:
+                print(f"Error writing {path}: {e}", file=sys.stderr)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Batch SPARQL extract from Wikidata")
