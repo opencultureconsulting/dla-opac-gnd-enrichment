@@ -38,7 +38,7 @@ Die TSV-Dateien haben immer zwei Spalten:
 
 Jeder Wert kommt in eine eigene Zeile, ggf. wird die GND-ID bzw. Wikidata-ID wiederholt.
 
-Beispiel aus [output/pe-gnd-wikidata.tsv](output/pe-gnd-wikidata.tsv):
+Beispiel aus [output/lobid-wikidata-pe.tsv](output/lobid-wikidata-pe.tsv):
 ```
 116891998	Q95880566
 116892927	Q20733597
