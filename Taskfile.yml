@@ -61,7 +61,7 @@ tasks:
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' \
           | awk '!x[$0]++' \
-          | sort --stable --key 1,1 \
+          | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-wikidata-${x}.tsv
         done
       - | # Wikipedia (sameAs https://de.wikipedia.org/wiki/)
@@ -69,7 +69,7 @@ tasks:
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://de.wikipedia.org/wiki/(.*)").captures[].string | [$id, .] | @tsv' \
           | awk '!x[$0]++' \
-          | sort --stable --key 1,1 \
+          | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-wikipedia-${x}.tsv
         done
       - | # Filmportal (sameAs https://www.filmportal.de/)
@@ -77,7 +77,7 @@ tasks:
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://www.filmportal.de/(.*)").captures[].string | [$id, .] | @tsv' \
           | awk '!x[$0]++' \
-          | sort --stable --key 1,1 \
+          | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-filmportal-${x}.tsv
         done
       - | # Deutsche Biographie (sameAs https://www.deutsche-biographie.de/)
@@ -85,7 +85,7 @@ tasks:
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://www.deutsche-biographie.de/(.*)").captures[].string | [$id, .] | @tsv' \
           | awk '!x[$0]++' \
-          | sort --stable --key 1,1 \
+          | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-deutsche-biographie-${x}.tsv
         done
       - | # Commons (depiction https://commons.wikimedia.org/wiki/Special:FilePath/)
@@ -93,7 +93,7 @@ tasks:
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .depiction[].id | match("https://commons.wikimedia.org/wiki/Special:FilePath/(.*)").captures[].string | [$id, .] | @tsv' \
           | awk '!x[$0]++' \
-          | sort --stable --key 1,1 \
+          | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-commons-${x}.tsv
         done
     sources:
@@ -103,24 +103,67 @@ tasks:
     preconditions:
       - command -v jq
 
-  wikidata:
+  wikidata-filter:
     desc: Mit den aus lobid-extract ermittelten Wikidata IDs den Wikidata Query Service abfragen
     dir: data
     cmds:
-      - cut -f 2 lobid-wikidata-ak.tsv | LC_ALL=POSIX sort -u > qid-ak.txt
-      - cut -f 2 lobid-wikidata-ks.tsv | LC_ALL=POSIX sort -u > qid-ks.txt
-      - cut -f 2 lobid-wikidata-pe.tsv | LC_ALL=POSIX sort -u > qid-pe.txt
-      - python3 ../wikidata-extract.py qid-ak.txt ak P18,P856,P2639
-      - cd ak; for f in *.tsv; do mv ${f} ../wikidata-${f%.tsv}-ak.tsv; done; cd ..; rm -r ak
-      - python3 ../wikidata-extract.py qid-ks.txt ks P18,P856,P2639
-      - cd ks; for f in *.tsv; do mv ${f} ../wikidata-${f%.tsv}-ks.tsv; done; cd ..; rm -r ks
-      - python3 ../wikidata-extract.py qid-pe.txt pe P18,P856,P2639,P109
-      - cd pe; for f in *.tsv; do mv ${f} ../wikidata-${f%.tsv}-pe.tsv; done; cd ..; rm -r pe
+      - cut -f 2 lobid-wikidata-ak.tsv | LC_ALL=POSIX sort -u --version-sort > qid-ak.txt
+      - cut -f 2 lobid-wikidata-ks.tsv | LC_ALL=POSIX sort -u --version-sort > qid-ks.txt
+      - cut -f 2 lobid-wikidata-pe.tsv | LC_ALL=POSIX sort -u --version-sort > qid-pe.txt
+      - python3 ../wikidata-extract.py qid-ak.txt P18,P856,P2639 | gzip > wikidata-filtered-ak.jsonl.gz
+      - python3 ../wikidata-extract.py qid-ks.txt P18,P856,P2639 | gzip > wikidata-filtered-ks.jsonl.gz
+      - python3 ../wikidata-extract.py qid-pe.txt P18,P856,P2639,P109 | gzip > wikidata-filtered-pe.jsonl.gz
     sources:
       - lobid-wikidata-*.tsv
       - ../wikidata-extract.py
     generates:
       - qid-*.txt
+      - wikidata-filtered-*.jsonl.gz
+    preconditions:
+      - command -v python3
+      - command -v gzip
+
+  wikidata-extract:
+    desc: Gewünschte Daten aus wikidata-filtered in einzelne Tabellen extrahieren
+    dir: data
+    cmds:
+      - | # image (P18 http://commons.wikimedia.org/wiki/Special:FilePath/)
+        for x in ak ks pe; do
+          zcat < wikidata-filtered-${x}.jsonl.gz \
+          | jq -r 'select(.P18 != null) | [.id, .P18] | @tsv' \
+          | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
+          | awk '!x[$0]++' \
+          | LC_ALL=POSIX sort --key 1,1 --version-sort \
+          > wikidata-P18-${x}.tsv
+        done
+      - | # signature (P109 http://commons.wikimedia.org/wiki/Special:FilePath/)
+        for x in pe; do
+          zcat < wikidata-filtered-${x}.jsonl.gz \
+          | jq -r 'select(.P109 != null) | [.id, .P109] | @tsv' \
+          | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
+          | awk '!x[$0]++' \
+          | LC_ALL=POSIX sort --key 1,1 --version-sort \
+          > wikidata-P109-${x}.tsv
+        done
+      - | # website (P856)
+        for x in ak ks pe; do
+          zcat < wikidata-filtered-${x}.jsonl.gz \
+          | jq -r 'select(.P856 != null) | [.id, .P856] | @tsv' \
+          | awk '!x[$0]++' \
+          | LC_ALL=POSIX sort --key 1,1 --version-sort \
+          > wikidata-P856-${x}.tsv
+        done
+      - | # filmportal (P2639)
+        for x in ak ks pe; do
+          zcat < wikidata-filtered-${x}.jsonl.gz \
+          | jq -r 'select(.P2639 != null) | [.id, .P2639] | @tsv' \
+          | awk '!x[$0]++' \
+          | LC_ALL=POSIX sort --key 1,1 --version-sort \
+          > wikidata-P2639-${x}.tsv
+        done
+    sources:
+      - wikidata-filtered-*.jsonl.gz
+    generates:
       - wikidata-*.tsv
     preconditions:
       - command -v jq
