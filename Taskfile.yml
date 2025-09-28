@@ -11,7 +11,8 @@ tasks:
       - task: lobid-download
       - task: lobid-filter
       - task: lobid-extract
-      - task: wikidata
+      - task: wikidata-filter
+      - task: wikidata-extract
       - task: output
     
   datendienst:
@@ -60,7 +61,6 @@ tasks:
         for x in ak ks pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' \
-          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-wikidata-${x}.tsv
         done
@@ -68,7 +68,6 @@ tasks:
         for x in ak ks pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://de.wikipedia.org/wiki/(.*)").captures[].string | [$id, .] | @tsv' \
-          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-wikipedia-${x}.tsv
         done
@@ -76,7 +75,6 @@ tasks:
         for x in pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://www.filmportal.de/(.*)").captures[].string | [$id, .] | @tsv' \
-          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-filmportal-${x}.tsv
         done
@@ -84,7 +82,6 @@ tasks:
         for x in pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://www.deutsche-biographie.de/(.*)").captures[].string | [$id, .] | @tsv' \
-          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-deutsche-biographie-${x}.tsv
         done
@@ -92,7 +89,6 @@ tasks:
         for x in ak ks pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .depiction[].id | match("https://commons.wikimedia.org/wiki/Special:FilePath/(.*)").captures[].string | [$id, .] | @tsv' \
-          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-commons-${x}.tsv
         done
