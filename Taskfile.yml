@@ -65,13 +65,13 @@ tasks:
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-wikidata-${x}.tsv
         done
-      - | # Wikipedia (sameAs https://de.wikipedia.org/wiki/)
+      - | # Deutsche Wikipedia (sameAs https://de.wikipedia.org/wiki/)
         for x in ak ks pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[] | select (.collection.abbr == "dewiki") | [$id, .id] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://de.wikipedia.org/wiki/","",$2)}1' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
-          > lobid-wikipedia-${x}.tsv
+          > lobid-dewiki-${x}.tsv
         done
       - | # Filmportal (sameAs https://www.filmportal.de/)
         for x in pe; do
@@ -89,13 +89,13 @@ tasks:
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-deutsche-biographie-${x}.tsv
         done
-      - | # Commons (depiction https://commons.wikimedia.org/wiki/Special:FilePath/)
+      - | # Bild aus Wikimedia Commons (depiction https://commons.wikimedia.org/wiki/Special:FilePath/)
         for x in ak ks pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | [$id, .depiction[].id] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
-          > lobid-commons-${x}.tsv
+          > lobid-depiction-${x}.tsv
         done
     sources:
       - lobid-filtered-*.jsonl.gz
@@ -146,7 +146,7 @@ tasks:
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
           > wikidata-P109-${x}.tsv
         done
-      - | # website (P856)
+      - | # official website (P856)
         for x in ak ks pe; do
           zcat < wikidata-filtered-${x}.jsonl.gz \
           | jq -r 'select(.P856 != null) | [.id, .P856] | @tsv' \
@@ -154,7 +154,7 @@ tasks:
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
           > wikidata-P856-${x}.tsv
         done
-      - | # filmportal (P2639)
+      - | # Filmportal ID (P2639)
         for x in ak ks pe; do
           zcat < wikidata-filtered-${x}.jsonl.gz \
           | jq -r 'select(.P2639 != null) | [.id, .P2639] | @tsv' \
