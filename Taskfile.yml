@@ -10,9 +10,9 @@ tasks:
       - task: datendienst
       - task: lobid-download
       - task: lobid-filter
-      - task: lobid-extract
-      - task: wikidata-filter
+      - task: lobid-transform
       - task: wikidata-extract
+      - task: wikidata-transform
       - task: output
     
   datendienst:
@@ -53,7 +53,7 @@ tasks:
       - command -v python3
       - command -v gzip
 
-  lobid-extract:
+  lobid-transform:
     desc: Gewünschte Daten aus lobid-filtered in einzelne Tabellen extrahieren
     dir: data
     cmds:
@@ -104,33 +104,33 @@ tasks:
     preconditions:
       - command -v jq
 
-  wikidata-filter:
-    desc: Mit den aus lobid-extract ermittelten Wikidata IDs den Wikidata Query Service abfragen
+  wikidata-extract:
+    desc: Mit den aus lobid-gnd ermittelten Wikidata IDs den Wikidata Query Service abfragen
     dir: data
     cmds:
       - cut -f 2 lobid-wikidata-ak.tsv | LC_ALL=POSIX sort -u --version-sort > qid-ak.txt
       - cut -f 2 lobid-wikidata-ks.tsv | LC_ALL=POSIX sort -u --version-sort > qid-ks.txt
       - cut -f 2 lobid-wikidata-pe.tsv | LC_ALL=POSIX sort -u --version-sort > qid-pe.txt
-      - python3 ../wikidata-extract.py qid-ak.txt P18,P856,P2639 | gzip > wikidata-filtered-ak.jsonl.gz
-      - python3 ../wikidata-extract.py qid-ks.txt P18,P856,P2639 | gzip > wikidata-filtered-ks.jsonl.gz
-      - python3 ../wikidata-extract.py qid-pe.txt P18,P856,P2639,P109 | gzip > wikidata-filtered-pe.jsonl.gz
+      - python3 ../wikidata-extract.py qid-ak.txt P18,P856,P2639 | gzip > wikidata-extracted-ak.jsonl.gz
+      - python3 ../wikidata-extract.py qid-ks.txt P18,P856,P2639 | gzip > wikidata-extracted-ks.jsonl.gz
+      - python3 ../wikidata-extract.py qid-pe.txt P18,P856,P2639,P109 | gzip > wikidata-extracted-pe.jsonl.gz
     sources:
       - lobid-wikidata-*.tsv
       - ../wikidata-extract.py
     generates:
       - qid-*.txt
-      - wikidata-filtered-*.jsonl.gz
+      - wikidata-extracted-*.jsonl.gz
     preconditions:
       - command -v python3
       - command -v gzip
 
-  wikidata-extract:
-    desc: Gewünschte Daten aus wikidata-filtered in einzelne Tabellen extrahieren
+  wikidata-transform:
+    desc: Gewünschte Daten aus wikidata-extracted in einzelne Tabellen extrahieren
     dir: data
     cmds:
       - | # image (P18 http://commons.wikimedia.org/wiki/Special:FilePath/)
         for x in ak ks pe; do
-          zcat < wikidata-filtered-${x}.jsonl.gz \
+          zcat < wikidata-extracted-${x}.jsonl.gz \
           | jq -r 'select(.P18 != null) | [.id, .P18] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
           | awk '!x[$0]++' \
@@ -139,7 +139,7 @@ tasks:
         done
       - | # signature (P109 http://commons.wikimedia.org/wiki/Special:FilePath/)
         for x in pe; do
-          zcat < wikidata-filtered-${x}.jsonl.gz \
+          zcat < wikidata-extracted-${x}.jsonl.gz \
           | jq -r 'select(.P109 != null) | [.id, .P109] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
           | awk '!x[$0]++' \
@@ -148,7 +148,7 @@ tasks:
         done
       - | # official website (P856)
         for x in ak ks pe; do
-          zcat < wikidata-filtered-${x}.jsonl.gz \
+          zcat < wikidata-extracted-${x}.jsonl.gz \
           | jq -r 'select(.P856 != null) | [.id, .P856] | @tsv' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
@@ -156,14 +156,14 @@ tasks:
         done
       - | # Filmportal ID (P2639)
         for x in ak ks pe; do
-          zcat < wikidata-filtered-${x}.jsonl.gz \
+          zcat < wikidata-extracted-${x}.jsonl.gz \
           | jq -r 'select(.P2639 != null) | [.id, .P2639] | @tsv' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
           > wikidata-P2639-${x}.tsv
         done
     sources:
-      - wikidata-filtered-*.jsonl.gz
+      - wikidata-extracted-*.jsonl.gz
     generates:
       - wikidata-*.tsv
     preconditions:
