@@ -60,35 +60,40 @@ tasks:
       - | # Wikidata (sameAs http://www.wikidata.org/entity/)
         for x in ak ks pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
-          | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("http://www.wikidata.org/entity/(.*)").captures[].string | [$id, .] | @tsv' \
+          | jq -r 'try .gndIdentifier as $id | .sameAs[] | select (.collection.abbr == "WIKIDATA") | [$id, .id] | @tsv' \
+          | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://www.wikidata.org/entity/","",$2)}1' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-wikidata-${x}.tsv
         done
       - | # Wikipedia (sameAs https://de.wikipedia.org/wiki/)
         for x in ak ks pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
-          | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://de.wikipedia.org/wiki/(.*)").captures[].string | [$id, .] | @tsv' \
+          | jq -r 'try .gndIdentifier as $id | .sameAs[] | select (.collection.abbr == "dewiki") | [$id, .id] | @tsv' \
+          | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://de.wikipedia.org/wiki/","",$2)}1' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-wikipedia-${x}.tsv
         done
       - | # Filmportal (sameAs https://www.filmportal.de/)
         for x in pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
-          | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://www.filmportal.de/(.*)").captures[].string | [$id, .] | @tsv' \
+          | jq -r 'try .gndIdentifier as $id | .sameAs[] | select (.collection.id == "https://www.filmportal.de") | [$id, .id] | @tsv' \
+          | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://www.filmportal.de/","",$2)}1' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-filmportal-${x}.tsv
         done
       - | # Deutsche Biographie (sameAs https://www.deutsche-biographie.de/)
         for x in pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
-          | jq -r 'try .gndIdentifier as $id | .sameAs[].id | match("https://www.deutsche-biographie.de/(.*)").captures[].string | [$id, .] | @tsv' \
+          | jq -r 'try .gndIdentifier as $id | .sameAs[] | select (.collection.id == "https://www.deutsche-biographie.de") | [$id, .id] | @tsv' \
+          | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://www.deutsche-biographie.de/","",$2)}1' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-deutsche-biographie-${x}.tsv
         done
       - | # Commons (depiction https://commons.wikimedia.org/wiki/Special:FilePath/)
         for x in ak ks pe; do
           zcat < lobid-filtered-${x}.jsonl.gz \
-          | jq -r 'try .gndIdentifier as $id | .depiction[].id | match("https://commons.wikimedia.org/wiki/Special:FilePath/(.*)").captures[].string | [$id, .] | @tsv' \
+          | jq -r 'try .gndIdentifier as $id | [$id, .depiction[].id] | @tsv' \
+          | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
           > lobid-commons-${x}.tsv
         done
