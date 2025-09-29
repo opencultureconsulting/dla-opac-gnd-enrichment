@@ -10,11 +10,13 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import gzip
 
 ENDPOINT = "https://query.wikidata.org/sparql"
 HEADERS = {
     "User-Agent": "DLA Marbach OPAC Enrichment; mailto:dla@felixlohmeier.de",
     "Accept": "application/json",
+    "Accept-Encoding": "gzip",
     "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
 }
 
@@ -43,6 +45,11 @@ def run_query(sparql):
         try:
             with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
                 data = resp.read()
+                # Prüfung auf gzip Kompression
+                content_encoding = (resp.getheader("Content-Encoding") if hasattr(resp, "getheader")
+                                    else resp.info().get("Content-Encoding")) or ""
+                if "gzip" in content_encoding.lower():
+                    data = gzip.decompress(data)
                 return json.loads(data.decode("utf-8"))
         except urllib.error.HTTPError as e:
             # 429, 503 etc. -> retry with backoff
