@@ -13,6 +13,8 @@ tasks:
       - task: lobid-transform
       - task: wikidata-extract
       - task: wikidata-transform
+      - task: commons-extract
+      - task: commons-transform
       - task: output
     
   datendienst:
@@ -153,6 +155,34 @@ tasks:
       - wikidata-extracted-*.jsonl.gz
     generates:
       - wikidata-*.tsv
+    preconditions:
+      - command -v jq
+
+  commons-extract:
+    desc: Batch Abfrage von Wikimedia Commons API query/imageinfo
+    dir: data
+    cmds:
+      - cut -f 2 lobid-depiction.tsv wikidata-P18.tsv | sort -u > commons.txt
+      - python3 ../commons-extract.py < commons.txt | gzip > commons-extracted.jsonl.gz
+    sources:
+      - lobid-depiction.tsv
+      - wikidata-P18.tsv
+      - ../commons-extract.py
+    generates:
+      - commons-extracted.jsonl.gz
+    preconditions:
+      - command -v python3
+      - command -v gzip
+
+  commons-transform:
+    desc: Aus imageinfo eine Rechteangabe generieren
+    dir: data
+    cmds:
+      - echo TODO
+    sources:
+      - commons-extracted.jsonl.gz
+    generates:
+      - commons-*.tsv
     preconditions:
       - command -v jq
 
