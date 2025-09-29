@@ -22,23 +22,24 @@ Die in [Taskfile.yml](Taskfile.yml) definierten Tasks können auch einzeln ausge
 * `datendienst`: Download von GND-IDs aus dem DLA Datendienst
 * `lobid-download`: Bulk-Download der GND als JSON-Lines über lobid-gnd
 * `lobid-filter`: GND-Download reduzieren auf im DLA verwendete GND-IDs
-* `lobid-extract`: Gewünschte Daten in einzelne Tabellen extrahieren
-* `wikidata`: Mit den aus lobid-extract ermittelten Wikidata IDs den Wikidata Query Service abfragen
+* `lobid-transform`: Gewünschte Daten aus lobid-filtered in einzelne Tabellen schreiben
+* `wikidata-extract`: Mit den aus lobid-gnd ermittelten Wikidata IDs den Wikidata Query Service abfragen
+* `wikidata-transform`: Gewünschte Daten aus wikidata-extracted in einzelne Tabellen schreiben
 * `output`: Plausibilitätsprüfung und ggf. Kopie der Daten in das Verzeichnis output
 
 Der GitHub Actions Workflow [default.yml](.github/workflows/default.yml) führt den Gesamtprozess aus und lädt anschließend die neu generierten Daten mit einem Commit ins GitHub Repository.
 
 ## Daten
 
-Zwischenergebnisse werden im Ordner `data` abgelegt. Das Gesamtergebnis wird schließlich im Ordner [output](output) bereitgestellt. Für jedes ausgewählte Feld aus der GND oder Wikidata wird eine TSV-Datei pro Teilbestand des DLA (ak: Werktitel, ks: Körperschaften, pe: Personen) bereitgestellt.
+Zwischenergebnisse werden im Ordner `data` abgelegt. Das Gesamtergebnis wird schließlich im Ordner [output](output) bereitgestellt. Für jedes ausgewählte Feld aus der GND oder Wikidata wird eine TSV-Datei bereitgestellt.
 
 Die TSV-Dateien haben immer zwei Spalten:
-1. Spalte: GND-ID bzw. Wikidata-ID
+1. Spalte: GND-ID oder Wikidata-ID
 2. Spalte: Wert aus dem ausgewählten Feld
 
 Jeder Wert kommt in eine eigene Zeile, ggf. wird die GND-ID bzw. Wikidata-ID wiederholt.
 
-Beispiel aus [output/lobid-wikidata-pe.tsv](output/lobid-wikidata-pe.tsv):
+Beispiel aus [output/lobid-wikidata.tsv](output/lobid-wikidata.tsv):
 ```
 116891998	Q95880566
 116892927	Q20733597

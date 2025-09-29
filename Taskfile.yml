@@ -54,49 +54,44 @@ tasks:
       - command -v gzip
 
   lobid-transform:
-    desc: Gewünschte Daten aus lobid-filtered in einzelne Tabellen extrahieren
+    desc: Gewünschte Daten aus lobid-filtered in einzelne Tabellen schreiben
     dir: data
     cmds:
       - | # Wikidata (sameAs http://www.wikidata.org/entity/)
-        for x in ak ks pe; do
-          zcat < lobid-filtered-${x}.jsonl.gz \
+        gunzip -c lobid-filtered-*.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[] | select (.collection.abbr == "WIKIDATA") | [$id, .id] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://www.wikidata.org/entity/","",$2)}1' \
+          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
-          > lobid-wikidata-${x}.tsv
-        done
+          > lobid-wikidata.tsv
       - | # Deutsche Wikipedia (sameAs https://de.wikipedia.org/wiki/)
-        for x in ak ks pe; do
-          zcat < lobid-filtered-${x}.jsonl.gz \
+        gunzip -c lobid-filtered-*.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[] | select (.collection.abbr == "dewiki") | [$id, .id] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://de.wikipedia.org/wiki/","",$2)}1' \
+          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
-          > lobid-dewiki-${x}.tsv
-        done
+          > lobid-dewiki.tsv
       - | # Filmportal (sameAs https://www.filmportal.de/)
-        for x in pe; do
-          zcat < lobid-filtered-${x}.jsonl.gz \
+        gunzip -c lobid-filtered-*.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[] | select (.collection.id == "https://www.filmportal.de") | [$id, .id] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://www.filmportal.de/","",$2)}1' \
+          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
-          > lobid-filmportal-${x}.tsv
-        done
+          > lobid-filmportal.tsv
       - | # Deutsche Biographie (sameAs https://www.deutsche-biographie.de/)
-        for x in pe; do
-          zcat < lobid-filtered-${x}.jsonl.gz \
+        gunzip -c lobid-filtered-*.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | .sameAs[] | select (.collection.id == "https://www.deutsche-biographie.de") | [$id, .id] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://www.deutsche-biographie.de/","",$2)}1' \
+          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
-          > lobid-deutsche-biographie-${x}.tsv
-        done
+          > lobid-deutsche-biographie.tsv
       - | # Bild aus Wikimedia Commons (depiction https://commons.wikimedia.org/wiki/Special:FilePath/)
-        for x in ak ks pe; do
-          zcat < lobid-filtered-${x}.jsonl.gz \
+        gunzip -c lobid-filtered-*.jsonl.gz \
           | jq -r 'try .gndIdentifier as $id | [$id, .depiction[].id] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("https://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
+          | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --stable --key 1,1 \
-          > lobid-depiction-${x}.tsv
-        done
+          > lobid-depiction.tsv
     sources:
       - lobid-filtered-*.jsonl.gz
     generates:
@@ -125,43 +120,35 @@ tasks:
       - command -v gzip
 
   wikidata-transform:
-    desc: Gewünschte Daten aus wikidata-extracted in einzelne Tabellen extrahieren
+    desc: Gewünschte Daten aus wikidata-extracted in einzelne Tabellen schreiben
     dir: data
     cmds:
       - | # image (P18 http://commons.wikimedia.org/wiki/Special:FilePath/)
-        for x in ak ks pe; do
-          zcat < wikidata-extracted-${x}.jsonl.gz \
+        gunzip -c wikidata-extracted-*.jsonl.gz \
           | jq -r 'select(.P18 != null) | [.id, .P18] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
-          > wikidata-P18-${x}.tsv
-        done
+          > wikidata-P18.tsv
       - | # signature (P109 http://commons.wikimedia.org/wiki/Special:FilePath/)
-        for x in pe; do
-          zcat < wikidata-extracted-${x}.jsonl.gz \
+        gunzip -c wikidata-extracted-*.jsonl.gz \
           | jq -r 'select(.P109 != null) | [.id, .P109] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
-          > wikidata-P109-${x}.tsv
-        done
+          > wikidata-P109.tsv
       - | # official website (P856)
-        for x in ak ks pe; do
-          zcat < wikidata-extracted-${x}.jsonl.gz \
+        gunzip -c wikidata-extracted-*.jsonl.gz \
           | jq -r 'select(.P856 != null) | [.id, .P856] | @tsv' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
-          > wikidata-P856-${x}.tsv
-        done
+          > wikidata-P856.tsv
       - | # Filmportal ID (P2639)
-        for x in ak ks pe; do
-          zcat < wikidata-extracted-${x}.jsonl.gz \
+        gunzip -c wikidata-extracted-*.jsonl.gz \
           | jq -r 'select(.P2639 != null) | [.id, .P2639] | @tsv' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
-          > wikidata-P2639-${x}.tsv
-        done
+          > wikidata-P2639.tsv
     sources:
       - wikidata-extracted-*.jsonl.gz
     generates:
