@@ -105,18 +105,14 @@ tasks:
     desc: Mit den aus lobid-gnd ermittelten Wikidata IDs den Wikidata Query Service abfragen
     dir: data
     cmds:
-      - cut -f 2 lobid-wikidata-ak.tsv | LC_ALL=POSIX sort -u --version-sort > qid-ak.txt
-      - cut -f 2 lobid-wikidata-ks.tsv | LC_ALL=POSIX sort -u --version-sort > qid-ks.txt
-      - cut -f 2 lobid-wikidata-pe.tsv | LC_ALL=POSIX sort -u --version-sort > qid-pe.txt
-      - python3 ../wikidata-extract.py qid-ak.txt P18,P856,P2639 | gzip > wikidata-extracted-ak.jsonl.gz
-      - python3 ../wikidata-extract.py qid-ks.txt P18,P856,P2639 | gzip > wikidata-extracted-ks.jsonl.gz
-      - python3 ../wikidata-extract.py qid-pe.txt P18,P856,P2639,P109 | gzip > wikidata-extracted-pe.jsonl.gz
+      - cut -f 2 lobid-wikidata.tsv | LC_ALL=POSIX sort -u --version-sort > qid.txt
+      - python3 ../wikidata-extract.py qid.txt P18,P109,P856,P2639 | gzip > wikidata-extracted.jsonl.gz
     sources:
-      - lobid-wikidata-*.tsv
+      - lobid-wikidata.tsv
       - ../wikidata-extract.py
     generates:
-      - qid-*.txt
-      - wikidata-extracted-*.jsonl.gz
+      - qid.txt
+      - wikidata-extracted.jsonl.gz
     preconditions:
       - command -v python3
       - command -v gzip
@@ -126,33 +122,33 @@ tasks:
     dir: data
     cmds:
       - | # image (P18 http://commons.wikimedia.org/wiki/Special:FilePath/)
-        gunzip -c wikidata-extracted-*.jsonl.gz \
+        gunzip -c wikidata-extracted.jsonl.gz \
           | jq -r 'select(.P18 != null) | [.id, .P18] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
           > wikidata-P18.tsv
       - | # signature (P109 http://commons.wikimedia.org/wiki/Special:FilePath/)
-        gunzip -c wikidata-extracted-*.jsonl.gz \
+        gunzip -c wikidata-extracted.jsonl.gz \
           | jq -r 'select(.P109 != null) | [.id, .P109] | @tsv' \
           | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("http://commons.wikimedia.org/wiki/Special:FilePath/","",$2)}1' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
           > wikidata-P109.tsv
       - | # official website (P856)
-        gunzip -c wikidata-extracted-*.jsonl.gz \
+        gunzip -c wikidata-extracted.jsonl.gz \
           | jq -r 'select(.P856 != null) | [.id, .P856] | @tsv' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
           > wikidata-P856.tsv
       - | # Filmportal ID (P2639)
-        gunzip -c wikidata-extracted-*.jsonl.gz \
+        gunzip -c wikidata-extracted.jsonl.gz \
           | jq -r 'select(.P2639 != null) | [.id, .P2639] | @tsv' \
           | awk '!x[$0]++' \
           | LC_ALL=POSIX sort --key 1,1 --version-sort \
           > wikidata-P2639.tsv
     sources:
-      - wikidata-extracted-*.jsonl.gz
+      - wikidata-extracted.jsonl.gz
     generates:
       - wikidata-*.tsv
     preconditions:
