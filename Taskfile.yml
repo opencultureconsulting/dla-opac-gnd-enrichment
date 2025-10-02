@@ -178,11 +178,39 @@ tasks:
     desc: Aus imageinfo eine Rechteangabe generieren
     dir: data
     cmds:
-      - echo TODO
+      - |
+        gunzip -c commons-extracted.jsonl.gz \
+          | jq -r 'try
+            .title as $file |
+            (.imageinfo // [ {} ])[] |
+            (.extmetadata.Artist.value // ""
+              | gsub("<.*?>";"")
+              | gsub("\\(.*?\\)";"")
+              | gsub("\\n";"")
+              | gsub("^unknown.*";"";"i")
+              | gsub("^anonym.*";"";"i")
+              | gsub("^unidentified.*";"";"i")
+              | gsub("^unbekannt.*";"";"i")
+              | gsub("^various.*";"";"i")
+              | gsub("user:";"";"i")
+              | gsub("benutzer:";"";"i")
+              | gsub("No machine-readable author provided. ";"")
+              ) as $artist |
+            (.extmetadata.LicenseShortName.value // "Lizenz unbekannt") as $license |
+            [
+              $file,
+              if ($artist | length) > 50 then $artist[:50] + "... | " elif ($artist | length) > 1 then $artist + " | " else "" end
+                + "Wikimedia Commons"
+                + " | " + $license
+            ] | @tsv' \
+          | awk 'BEGIN{FS="\t"; OFS=FS}{gsub("File:","",$1)}1' \
+          | tr -d \" \
+          | LC_ALL=POSIX sort --key 1,1 --version-sort \
+          > commons-rechte.tsv
     sources:
       - commons-extracted.jsonl.gz
     generates:
-      - commons-*.tsv
+      - commons-rechte.tsv
     preconditions:
       - command -v jq
 
