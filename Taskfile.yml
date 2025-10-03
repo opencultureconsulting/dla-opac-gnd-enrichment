@@ -158,7 +158,7 @@ tasks:
     desc: Batch Abfrage von Wikimedia Commons API query/imageinfo
     dir: data
     cmds:
-      - cut -f 2 lobid-depiction.tsv wikidata-P18.tsv | sort -u > commons.txt
+      - cut -f 2 lobid-depiction.tsv wikidata-P18.tsv wikidata-P109.tsv | sort -u > commons.txt
       - python3 ../commons-extract.py < commons.txt | gzip > commons-extracted.jsonl.gz
     sources:
       - lobid-depiction.tsv
