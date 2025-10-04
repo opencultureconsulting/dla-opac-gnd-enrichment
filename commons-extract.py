@@ -38,30 +38,32 @@ def chunks(lst, n):
 
 def run_query(encoded_titles):
     """Führt eine Anfrage durch und gibt das Ergebnis als JSON zurück."""
-    url = f"{ENDPOINT}{PARAMS}&titles={encoded_titles}"
-    req = urllib.request.Request(url, headers=HEADERS, method="GET")
+    url = ENDPOINT + PARAMS + "&titles=" + encoded_titles
+    req = urllib.request.Request(url, headers=HEADERS)
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+            resp = urllib.request.urlopen(req, timeout=TIMEOUT)
+            try:
                 data = resp.read()
                 # Prüfung auf gzip Kompression
-                content_encoding = (resp.getheader("Content-Encoding") if hasattr(resp, "getheader")
-                                    else resp.info().get("Content-Encoding")) or ""
+                content_encoding = resp.info().get("Content-Encoding") or ""
                 if "gzip" in content_encoding.lower():
                     data = gzip.decompress(data)
                 return json.loads(data.decode("utf-8"))
+            finally:
+                resp.close()
         except urllib.error.HTTPError as e:
-            # Fehlerbehandlung: Retry bei HTTP-Fehlern (z.B. 429, 503)
-            print(f"HTTP error: {e}", file=sys.stderr)
+            # Fehlerbehandlung: Retry bei HTTP-Fehlern
+            print("HTTP error: {0}".format(e), file=sys.stderr)
             if attempt == MAX_RETRIES:
-                raise RuntimeError(f"HTTP error after {attempt} attempts: {e}") from e
+                raise RuntimeError("HTTP error after {0} attempts: {1}".format(attempt, e))
             wait = BACKOFF_FACTOR ** (attempt - 1)
             time.sleep(wait)
         except urllib.error.URLError as e:
             # Fehlerbehandlung: Retry bei URL-Fehlern
-            print(f"URL error: {e}", file=sys.stderr)
+            print("URL error: {0}".format(e), file=sys.stderr)
             if attempt == MAX_RETRIES:
-                raise RuntimeError(f"URL error after {attempt} attempts: {e}") from e
+                raise RuntimeError("URL error after {0} attempts: {1}".format(attempt, e))
             wait = BACKOFF_FACTOR ** (attempt - 1)
             time.sleep(wait)
     raise RuntimeError("request failed after retries")
@@ -105,10 +107,11 @@ def main(filenames):
         pages = res.get("query", {}).get("pages", {})
         page_items = list(pages.values())
         for page in page_items:
-            print(json.dumps(page, ensure_ascii=False))
+            print(json.dumps(page))
 
         processed += len(batch)
-        print(f"Processed {processed}/{total}", file=sys.stderr)
+        sys.stderr.write("Processed {0}/{1}\n".format(processed, total))
+        sys.stderr.flush()
         time.sleep(SLEEP_BETWEEN)
         i += batch_size
 
