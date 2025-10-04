@@ -40,26 +40,26 @@ def chunks(lst, n):
 
 def run_query(sparql):
     body = urllib.parse.urlencode({"query": sparql}).encode("utf-8")
-    req = urllib.request.Request(ENDPOINT, data=body, headers=HEADERS, method="POST")
+    req = urllib.request.Request(ENDPOINT, data=body, headers=HEADERS)
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
                 data = resp.read()
                 # Prüfung auf gzip Kompression
-                content_encoding = (resp.getheader("Content-Encoding") if hasattr(resp, "getheader")
-                                    else resp.info().get("Content-Encoding")) or ""
+                # Python 3.4: resp.info().get() verwenden
+                content_encoding = resp.info().get("Content-Encoding") or ""
                 if "gzip" in content_encoding.lower():
                     data = gzip.decompress(data)
                 return json.loads(data.decode("utf-8"))
         except urllib.error.HTTPError as e:
             # 429, 503 etc. -> retry with backoff
             if attempt == MAX_RETRIES:
-                raise RuntimeError(f"HTTP error after {attempt} attempts: {e}") from e
+                raise RuntimeError("HTTP error after {0} attempts: {1}".format(attempt, e)) from e
             wait = BACKOFF_FACTOR ** (attempt - 1)
             time.sleep(wait)
         except urllib.error.URLError as e:
             if attempt == MAX_RETRIES:
-                raise RuntimeError(f"URL error after {attempt} attempts: {e}") from e
+                raise RuntimeError("URL error after {0} attempts: {1}".format(attempt, e)) from e
             wait = BACKOFF_FACTOR ** (attempt - 1)
             time.sleep(wait)
     raise RuntimeError("SPARQL request failed after retries")
@@ -73,7 +73,7 @@ def main(id_file, properties):
         if x.startswith("Q"):
             ids.append("wd:" + x)
         else:
-            print(f"Skipping invalid id: {x!r}", file=sys.stderr)
+            print("Skipping invalid id: {0!r}".format(x), file=sys.stderr)
 
     total = len(ids)
     processed = 0
@@ -81,8 +81,8 @@ def main(id_file, properties):
     for batch in chunks(ids, BATCH_SIZE):
         # SPARQL-Abfrage für einen Batch vorbeiten
         values = " ".join(batch)
-        select_vars = "\n".join(["?id"] + [f"?{p}" for p in properties])
-        optional_lines = "\n".join([f"OPTIONAL {{ ?id wdt:{p} ?{p}. }}" for p in properties])
+        select_vars = "\n".join(["?id"] + ["?{0}".format(p) for p in properties])
+        optional_lines = "\n".join(["OPTIONAL {{ ?id wdt:{0} ?{0}. }}".format(p) for p in properties])
         sparql = SPARQL_TEMPLATE.format(
             select_vars=select_vars,
             values=values,
@@ -92,10 +92,13 @@ def main(id_file, properties):
         bindings = res.get("results", {}).get("bindings", [])
         # Ausgabe der Bindings als JSON-Lines, nur wenn >= 2 Felder vorhanden
         for b in bindings:
-            rec = {k: v.get("value") for k, v in b.items() if isinstance(v, dict) and "value" in v}
+            rec = {}
+            for k, v in b.items():
+                if isinstance(v, dict) and "value" in v:
+                    rec[k] = v.get("value")
             # Bereinige das id-Feld: entferne den Wikidata-Entity-Präfix, sodass nur z.B. "Q42" übrig bleibt
             prefix = "http://www.wikidata.org/entity/"
-            if rec["id"].startswith(prefix):
+            if "id" in rec and rec["id"].startswith(prefix):
                 rec["id"] = rec["id"][len(prefix):]
             if len(rec) >= 2:
                 print(json.dumps(rec, ensure_ascii=False))
@@ -105,7 +108,7 @@ def main(id_file, properties):
             time.sleep(SLEEP_BETWEEN)
             continue
         processed += len(batch)
-        print(f"Processed {processed}/{total}", file=sys.stderr)
+        print("Processed {0}/{1}".format(processed, total), file=sys.stderr)
         time.sleep(SLEEP_BETWEEN)
 
 if __name__ == "__main__":
