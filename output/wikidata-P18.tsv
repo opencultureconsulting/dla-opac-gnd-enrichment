@@ -64,7 +64,7 @@ Q767	Mallarm%C3%A9%20Nadar.jpg
 Q835	%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB-%D0%91%D1%83%D0%BB%D0%B3%D0%B0%D0%BA%D0%BE%D0%B2.jpg
 Q849	Francois%20Villon%201489.jpg
 Q853	Andrei%20tarkovsky%20stamp%20russia%202007.jpg
-Q855	Joseph%20Stalin%20in%201932%20%284%29%20%28cropped%29%282%29.jpg
+Q855	Joseph%20Stalin%20official%20portrait.jpg
 Q859	Plato%20Silanion%20Musei%20Capitolini%20MC1377.jpg
 Q862	Joseph%20Brodsky%201988.jpg
 Q868	Aristotle%20Altemps%20Inv8575.jpg
@@ -92,7 +92,7 @@ Q1043	Carl%20von%20Linn%C3%A9.jpg
 Q1047	Jawaharlal%20Nehru%2C%201947.jpg
 Q1048	Gaius%20Iulius%20Caesar%20%28Vatican%20Museum%29.jpg
 Q1064	Francesco%20Hayez%20-%20Ritratto%20di%20Alessandro%20Manzoni.jpg
-Q1065	General%20Assembly%20of%20the%20United%20Nations.jpg
+Q1065	Secretary%20Kerry%20Addresses%20Delegates%20Before%20Signing%20the%20COP21%20Climate%20Change%20Agreement%20on%20Earth%20Day%20in%20New%20York%20%2826514585581%29.jpg
 Q1067	Portrait%20de%20Dante.jpg
 Q1124	Bill%20Clinton.jpg
 Q1145	Attribu%C3%A9%20%C3%A0%20Joseph%20Aved%2C%20Portrait%20de%20Jean-Philippe%20Rameau%20%28vers%201728%29%20-%20001.jpg
@@ -431,7 +431,7 @@ Q7750	G%C3%A9rard%20-%20Louis%20XVIII%20of%20France%20in%20Coronation%20Robes.jp
 Q7768	ASEAN%20HQ%201.jpg
 Q7771	1841%20portrait%20painting%20of%20Louis%20Philippe%20I%20%28King%20of%20the%20French%29%20by%20Winterhalter.jpg
 Q7793	Donato%20Bramante.jpg
-Q7809	UNESCO%20logo%20English.svg
+Q7809	UNESCO%20logo.svg
 Q7814	Uffizi%20Giotto.jpg
 Q7817	World%20Health%20Organisation%20headquarters%2C%20Geneva%2C%20north%20and%20west%20sides%202007.jpg
 Q7833	Boris%20Vian.jpg
@@ -460,6 +460,7 @@ Q8442	Bundesarchiv%20Bild%20146-2005-0057%2C%20Otto%20von%20Bismarck.jpg
 Q8446	Nirvana%20-%20Love%20Buzz%20Big%20Cheese%20front%20cover.jpg
 Q8459	Giorgione%20059.jpg
 Q8462	Timur%20seated%20%28earliest%20known%20portrait%29%2C%20Timurid%20genealogy%2C%201405-1409%2C%20Samarkand%20%28TSMK%2C%20H2152%29.jpg
+Q8467	Abu%20bakr2%20%28Umar%29.jpg
 Q8479	Inconnu%20d%27apr%C3%A8s%20J.-M.%20Nattier%2C%20Portrait%20de%20Pierre%20Ier%20%28mus%C3%A9e%20de%20l%E2%80%99Ermitage%29.jpg
 Q8573	%E5%AD%99%E4%B8%AD%E5%B1%B1%E8%82%96%E5%83%8F.jpg
 Q8605	Sim%C3%B3n%20Bol%C3%ADvar%20by%20Acevedo%20Bernal%2C%201922.jpg
@@ -529,9 +530,7 @@ Q9438	St-thomas-aquinasFXD.jpg
 Q9439	Queen%20Victoria%20by%20Bassano.jpg
 Q9440	Paolo%20Veronese%20-%20AUTORITRATTO%20%282%29%20-%20Museo%20dell%27Ermitage.jpg
 Q9441	Buddha%20in%20Sarnath%20Museum%20%28Dhammajak%20Mutra%29.jpg
-Q9458	Mohammed.jpg
-Q9458	Muslim%20depiction%20of%20Muhammad%20-%2017th%20century%20Ottoman%20copy%20from%20the%20%22Edinburgh%20codex%22.jpg
-Q9458	Siyer-i%20Nebi%20158b.jpg
+Q9458	Muhammad%20Masjid%20an-Nabawi%20Calligraphy.svg
 Q9531	Broadcasting%20House%2020160816.jpg
 Q9545	Tony%20Blair%202010%20%28cropped%29.jpg
 Q9546	Al-Ghazali.png
@@ -839,6 +838,7 @@ Q25251	6DalaiLama.jpg
 Q25310	Bobby%20Kennedy%20-%20restored.jpg
 Q25338	Saint%20Exupery%20exhibit%20-%20Air%20%26%20Space%20Museum%2C%20Le%20Bourget%2C%20Paris%2C%20France%2C%20absent%20artwork%20and%20not%20subject%20to%20copyright.jpg
 Q25351	Theodor%20Mommsen%2002.jpg
+Q25649	Saul%20Alinsky%20%28IA%20southerncampus1969univ%29%20%28page%20101%20crop%29.jpg
 Q25690	John%2C%206th%20Duke%20of%20Bedford%20%281766-1839%29.jpg
 Q25856	Constantin%20von%20Wurzbach%20%281818%E2%80%931893%29%20OeNB%208075001%20A.jpg
 Q25872	AlexanderGlazounov.jpg
@@ -1150,6 +1150,7 @@ Q41370	King%20David%2C%20the%20King%20of%20Israel.jpg
 Q41390	Young%20Kurt%20G%C3%B6del%20as%20a%20student%20in%201925.jpg
 Q41406	Edvard%20Munch%201933-2.jpg
 Q41408	Federico%20Garc%C3%ADa%20Lorca.%20Huerta%20de%20San%20Vicente%2C%20Granada.jpg
+Q41468	UFA%20in%20Potsdam-Babelsberg.jpg
 Q41476	Driesch1.jpg
 Q41484	Hermes%20Logios%20Altemps%20Inv8624%20n2bb.jpg
 Q41488	WoleSoyinka2015%20%28cropped%29.jpg
@@ -1179,7 +1180,9 @@ Q41871	Paul%20Newman%20-%201958.jpg
 Q41980	Unknown%20greek%20pushkin.jpg
 Q42013	Sadat%201.jpg
 Q42037	Jean-Marie%20Gustave%20Le%20Cl%C3%A9zio-press%20conference%20Dec%2006th%2C%202008-2.jpg
+Q42040	CRAWFORD%20MS%20PG%20120-face.jpg
 Q42040	Cloisters%20Apocalypse%20-%20Met%2068.174%20f3r%20%28John%20on%20the%20Island%20of%20Patmos%29.jpg
+Q42040	Statenbijbel%20Apocalypsis.jpg
 Q42122	Transtroemer.jpg
 Q42156	Henri%20Bergson%2002.jpg
 Q42188	Abel%20Tasman%20Navigateur%20en%20Australie%20%28cropped%29.jpg
@@ -1234,7 +1237,7 @@ Q43444	Gustave%20Flaubert.jpg
 Q43452	Las%20cuatro%20columnas%20en%20la%20UAB.jpg
 Q43459	Ferdowsi%20Square%20%28Tehran%29%20%28cropped%29.jpg
 Q43499	Holbein-erasmus.jpg
-Q43522	Jan%20Verkolje%20-%20Antonie%20van%20Leeuwenhoek.jpg
+Q43522	Portret%20van%20Antonie%20van%20Leeuwenhoek%2C%20RP-P-1903-A-23563.jpg
 Q43523	Gerhart%20Hauptmann%20nobel.jpg
 Q43600	Anthony%20van%20Dyck%20-%20De%20apostel%20Mattheus%20-%20L%27apotre%20Matthieu%20-%20Fonds%20Generet%20-%20Koning%20Boudewijnstichting%20-%20Fondation%20Roi%20Baudouin.jpg
 Q43610	NKS%201867%204to%2C%2097v%2C%20Odin%20on%20Sleipnir.jpg
@@ -1543,7 +1546,7 @@ Q47231	%28Venice%29%20Ancient%20Roman%20statues%20in%20the%20Museo%20archeologic
 Q47243	Elfriede%20jelinek%202004%20small.jpg
 Q47293	Bundesarchiv%20Bild%20183-R04034%2C%20Erich%20Maria%20Remarque%20%28cropped%29.jpg
 Q47365	Louise%20Elisabeth%20Vig%C3%A9e-Lebrun%20-%20Marie-Antoinette%20dit%20%C2%AB%20%C3%A0%20la%20Rose%20%C2%BB%20-%20Google%20Art%20Project.jpg
-Q47423	UN%20General%20Assembly%20hall.jpg
+Q47423	The%20Assembly%20Hall%2C%20Palais%20des%20Nations%20%2847570471872%29.jpg
 Q47434	Edmond%20Halley%20072.jpg
 Q47478	Swami%20Vivekananda%201893%20Scanned%20Image.jpg
 Q47480	Paul%20Dirac%2C%201933.jpg
@@ -4977,7 +4980,9 @@ Q76750	COLLECTIE%20TROPENMUSEUM%20Dr.%20G.H.R.%20von%20Koenigswald%20tijdens%20o
 Q76755	Carl%20Gutzkow%2019c.jpg
 Q76756	Albrecht%20Penck.jpg
 Q76762	Bundesarchiv%20Bild%20183-R35179%2C%20Prof.%20Friedrich%20Ratzel%20%28cropped%29.jpg
+Q76771	Richard%20Abegg%20%28cropped%29.jpg
 Q76772	Wilhelm%20von%20Waldeyer-Hartz%20-%201891.jpg
+Q76774	Ferdinand%20Julius%20Cohn%20%28cropped%29.jpg
 Q76784	Frkekul%C3%A9.jpg
 Q76787	Johann%20Heinrich%20von%20Th%C3%BCnen%201840%20portrait.png
 Q76791	%28Ferdinand%20von%20Richthofen%29%20-%20Ernst%20%28...%29Milster%20Ernst%20btv1b84510245%20%28cropped%29.jpg
@@ -5724,7 +5729,9 @@ Q79972	John%20de%20Critz%20-%20James%20VI%20and%20I%2C%201566%20-%201625.%20King
 Q80048	Al%20Capone%20in%201930.jpg
 Q80064	Elias%20Canetti%202.jpg
 Q80095	Paris%20-%20Salon%20du%20livre%202012%20-%20Kenzabur%C5%8D%20%C5%8Ce%20-%20003.jpg
-Q80115	Daniel%27s%20Answer%20to%20the%20King%2C%20by%20Briton%20Riviere%2C%20GMIII%20MCAG%201937%20123-001.jpg
+Q80115	Barther%20Bibel%2C%20Detail%20%282008-09-14%29.JPG
+Q80115	Book%20of%20Daniel%20Belarusian%20Skaryna.jpg
+Q80115	The%20Book%20of%20Daniel.jpg
 Q80135	Dmitri%20Shostakovich%20credit%20Deutsche%20Fotothek%20adjusted.jpg
 Q80137	Emily%20Bront%C3%AB%20by%20Patrick%20Branwell%20Bront%C3%AB%20restored.jpg
 Q80222	%D0%9B%D0%B0%D0%B3%D1%80%D0%B0%D0%BD%D0%B6.jpg
@@ -6763,6 +6770,7 @@ Q89064	USIS%20-%20Georg%20Marischka%201.jpg
 Q89066	Ilse%20Maria%20Aschner.jpg
 Q89071	Emil%20Hilb%201908.gif
 Q89081	Berthold%20Leibinger.jpg
+Q89102	Baron%20Karl%20Macchio%20%28c.%201915%29.png
 Q89105	Ingeborg%20Hallstein.JPG
 Q89112	Robert%20Hohlbaum%20%281886-1955%29.jpg
 Q89112	Robert%20Hohlbaum%201904.jpg
@@ -7276,6 +7284,7 @@ Q92011	%D0%98%D0%BE%D0%B3%D0%B0%D0%BD%D0%BD%D0%B5%D1%81%20%D0%9C%D0%B8%D0%BD%D0%
 Q92016	Billing%201909.jpg
 Q92019	Julian%20Schmidt.jpg
 Q92025	Hanns%20Dieter%20Husch.jpg
+Q92031	Rudolf%20Gottfried%20Arndt.jpg
 Q92040	Eberhard%20Koebel.jpg
 Q92043	Annakatharinaschoenkopf.png
 Q92047	Hans%20Gierke.jpg
@@ -8225,6 +8234,7 @@ Q98845	Heinreich%20Ulmann%201874-1912%20in%20Greifswald.jpg
 Q98850	R%C3%BCsen2.jpg
 Q98867	Eberhard%20Feik.jpg
 Q98873	Louise%20Seidler%20-%20Alma%20von%20Goethe%201832.jpg
+Q98880	Oberstabsarzt%20Dr.%20von%20Coler.jpg
 Q98887	Hinrichsen-henry-1928-02-16-illustrirte-zeitung-bd170-nr4327-s0232.jpg
 Q98906	Gottfried%20Benjamin%20Hancke.jpg
 Q98924	Bundesarchiv%20Bild%20183-F0114-0204-005%2C%20Berlin%2C%201.%20DSV-Jahreskonferenz%2C%20M.%20Engelhardt%2C%20H.%20Nachbar.jpg
@@ -8445,6 +8455,7 @@ Q101144	Friedrich%20L%C3%BCcke.jpg
 Q101149	MJK%2037063%20Axel%20Milberg%20%28arte%20Empfang%2C%20Berlinale%202019%29.jpg
 Q101160	NEXT13%20-%20Gesche%20Joost.jpg
 Q101167	Papers%20of%20Dr%20Marthe%20Louise%20Vogt%20Wellcome%20L0064411%20%28cropped%29.jpg
+Q101170	Michael%20Hofmann%20at%20the%202025%20Jaipur%20Literature%20Festival%20%28cropped%29.jpg
 Q101189	Bundesarchiv%20B%20145%20Bild-F004180-0008%2C%20Bonn%2C%20Schauspiel%20Stadttheater%20Bad%20Godesberg.jpg
 Q101203	Lina%20Carstens%2C%20by%20Selma%20Genthe%2C%201939.jpg
 Q101207	Wiegand-heinrich-reeder-1909-04-18-schwaebisches-bilderblatt-jg02-nr16-s02.jpg
@@ -10284,7 +10295,7 @@ Q119756	Annemie%20Fontana%20-%20Fountain%20Sirius%20-%20Escher%20Wyss%20Platz%2C
 Q119786	Bundesarchiv%20Bild%20183-23447-0002%2C%20Dresden%2C%20Karl%20Laux.jpg
 Q119797	Christian%20Friedrich%20Duttenhofer%20-%20Johann%20Diederich%20Gries.jpg
 Q119813	Wilhelm%20Joest%201891.jpg
-Q119818	Portrait%20of%20Bernard%20Quaritch.jpg
+Q119818	Bernard%20Quaritch.jpg
 Q119874	Walter%20von%20Molo%201930.jpg
 Q119905	Michael%20von%20Graffenried.jpg
 Q119923	Robert%20Graf%20Color.jpg
@@ -11118,7 +11129,7 @@ Q134180	Truman%20Capote%20by%20Jack%20Mitchell.jpg
 Q134189	Paolo%20Monti%20-%20Servizio%20fotografico%20%28Roma%2C%201969%29%20-%20BEIC%206353762.jpg
 Q134262	Tennessee%20Williams%20NYWTS.jpg
 Q134309	Bemberg%20Fondation%20Toulouse%20-%20Portrait%20de%20Charles%20IX%20-%20Fran%C3%A7ois%20Clouet%20-%20Inv.1012.jpg
-Q134456	Yukio%20Mishima%2C%201955%20%28cropped%29.jpg
+Q134456	Yukio%20Mishima%2C%201955%20%28cropped%20850%C3%97950%20px%29.jpg
 Q134461	Portret%20van%20Flavius%20Josephus%2C%20RP-P-1906-2507.jpg
 Q134644	Spaanse%20dichter%20en%20nobelprijswinnaar%20Vicente%20Alexandre%2C%20Bestanddeelnr%20929-3851.jpg
 Q134661	Photo%20of%20George%20Boole%20standing.png
@@ -11360,7 +11371,7 @@ Q152807	Gwozdecki%20-%20Kiki%20de%20Montparnasse%2C%201920.jpg
 Q152824	Susan%20Sontag%201979%20%C2%A9Lynn%20Gilbert%20%28headshot%29.jpg
 Q152838	G%C3%B6ttingen%20asv2022-06%20img42%20Uni%20Aula%20Wilhelmsplatz.jpg
 Q152871	Rummenigge%200400.jpg
-Q152880	Iannis%20Xenakis%201975.jpg
+Q152880	XenakisMDaniel%20crop.jpg
 Q152923	Rudolf%20Crown%20Prince%20of%20Austria%20LOC.jpg
 Q153006	Freie%20Universitaet%20Berlin%20-%20Gebaeudekomplex%20Rost-%20und%20Silberlaube.jpg
 Q153008	Zolt%C3%A1n%20Kod%C3%A1ly%20%281928%2C%20P%C3%A1l%20M.%20Vajda%29.jpg
@@ -12235,7 +12246,7 @@ Q180505	Loie%20Fuller%20by%20Elliott%20%26%20Fry.jpg
 Q180505	Loie%20Fuller.jpg
 Q180518	Helmbrechts%20037.JPG
 Q180545	%D0%93%D0%BB%D0%B8%D0%BD%D0%BA%D0%B0%20%D0%A4%D0%9D.jpg
-Q180588	Georgy%20Malenkov%201964.jpg
+Q180588	%D0%93%D0%B5%D0%BE%D1%80%D0%B3%D0%B8%D0%B9%20%D0%9C%D0%B0%D0%BB%D0%B5%D0%BD%D0%BA%D0%BE%D0%B2%20%281954%29.jpg
 Q180598	The%20Smiths%20%281984%20Sire%20publicity%20photo%29%20002.jpg
 Q180662	Finn%20Carling.jpg
 Q180727	Opdracht%20GPD%20componist%20John%20Cage%20%2C%20kop%2C%20Bestanddeelnr%20934-2728.jpg
@@ -12355,7 +12366,7 @@ Q184980	Thomas-kuhn-portrait.png
 Q184992	Bronislawmalinowski.jpg
 Q185031	Time%20Out%20of%20Joint%20%281959%29.jpg
 Q185085	Miguel%20de%20Unamuno%20Meurisse%201925.jpg
-Q185105	Fernand%20Braudel%20%281902-1985%29.jpg
+Q185105	Photo%20of%20Fernand%20Braudel%20on%20The%20Identity%20of%20France%20dustjacket.jpg
 Q185118	Treasure%20Island-Scribner%27s-1911.jpg
 Q185150	Eudoxus%20of%20Cnidus%20homocentric%20spheres%20model.png
 Q185223	Dio%20Cassius.jpg
@@ -12562,6 +12573,7 @@ Q191427	Au%C3%9Fenansicht%20Zeppelin%20Museum.jpg
 Q191480	Eggink-Portrait%20of%20Ivan%20Krylov.jpg
 Q191481	Proteus-Alciato.gif
 Q191485	Louis%20Vuitton%20flagship%20store%20at%20Avenue%20des%20Champs-%C3%89lys%C3%A9es%20%2822288053650%29.jpg
+Q191485	Paris%2C%20Louis%20Vuitton%20Malletier%2C%20Avenue%20des%20Champs%20Elys%C3%A9es.jpg
 Q191499	Scott%20Joplin%2019072.jpg
 Q191598	Karamzin%20by%20Tropinin%20%281818%2C%20Tretyakov%20gallery%29.jpg
 Q191663	Canterbury%20Tales.png
@@ -14139,7 +14151,7 @@ Q242181	Margaretha%20Sophie%20von%20%C3%96sterreich%20%281870-1902%29.jpg
 Q242334	Leyla%20Gencer%20An%C4%B1t%C4%B1.jpg
 Q242376	2004%20Al%20Azm%20Mernissi%20Soroush%20Mernissi%20cropped.tif
 Q242421	Philipp%20Kester%2C%20Mar%C3%ADa%20de%20la%20Paz.jpg
-Q242423	Maria%20Dabrowska.gif
+Q242423	Maria%20D%C4%85browska.jpg
 Q242535	Caterina%20Valente%20%281966%29%20%28cropped%29.jpg
 Q242640	Margaret%20Cavendish%2C%20Duchess%20of%20Newcastle%2C%20by%20Peter%20Lely.jpg
 Q242666	Beatrice%20Webb%2C%20c1875.jpg
@@ -15834,6 +15846,7 @@ Q320146	LeoFerre-Rome-1972.png
 Q320283	Chambre%20des%20Deputes.jpg
 Q320294	Elis%C3%A0r%20von%20Kupffer.jpg
 Q320327	William%20McIlvanney%20at%20the%20Edinburgh%20International%20Book%20Festival%202013.jpg
+Q320348	Widukind%20statue%2C%20Herford.jpg
 Q320372	La%20Peste%20book%20cover.jpg
 Q320400	Amaier.jpg
 Q320436	Jemmy%20Button.jpg
@@ -15948,6 +15961,7 @@ Q323505	JohnWebber.jpg
 Q323518	Olaf%20F%C3%B8nss%201919-1924%20Alexander%20Binder%20001.jpg
 Q323521	Professor%20Karl%20Kundmann%201909%20Carl%20Pietzner.png
 Q323553	Jean%20Carriere.jpg
+Q323722	Logo%20de%20la%20s%C3%A9rie%20t%C3%A9l%C3%A9vis%C3%A9e%20Bates%20Motel.png
 Q323728	2018-01-23%20DOSB%20Eingang-4995.jpg
 Q323745	Ernst%20Heinrich%20von%20Schimmelmann%201827.jpg
 Q323782	Pilch%20Jerzy.jpg
@@ -16928,6 +16942,7 @@ Q368831	Colin%20Wilson.jpg
 Q368914	DureyLouis1930.jpg
 Q368914	Les%20Six%20Tableau.jpg
 Q368976	Ren%C3%A9%20Cailli%C3%A9.jpg
+Q369022	Walter%20Bagehot%20NPG%20cropped.jpg
 Q369175	David%20Brown%202000.jpg
 Q369360	Lucius-d-clay-80-87.jpg
 Q369416	Fotoportret%20van%20Jan%20Toorop.jpg
@@ -17011,6 +17026,7 @@ Q374803	Benny%20morris.jpg
 Q374811	Wissenschaft%20der%20Logik.jpg
 Q374812	Adriana%20Altaras%20Frankfurter%20Buchmesse%202018.jpg
 Q374834	H.L.A.Hart.jpg
+Q374912	Roger%20Planchon%20-%20portrait%20de%20Fernand%20Michaud%20-%20btv1b10329556v.jpg
 Q375036	Kostas%20I%20Varnalis%20Alexandria%20circa%201914.jpg
 Q375106	Joseph%20Grimaldi.jpg
 Q375195	Johann%20Daniel%20Titius.jpg
@@ -17720,6 +17736,7 @@ Q447836	Thomasine%20Christine%20Gyllembourg.jpg
 Q447851	Mayer%20emilie%20schick.jpg
 Q447925	Konrad%20Kujau%2001.jpg
 Q447940	Hans-Ulrich%20Klose.jpg
+Q447946	Elisabeth%20Leonskaja.jpg
 Q447953	Uni%20Wuppertal%20%28Atamari%29-2.JPG
 Q447963	Friedrich%20August%20von%20Kaulbach%20-%20Selbstbildnis.jpg
 Q447981	Friedrich%20Kaulbach%201862.jpg
@@ -18081,6 +18098,7 @@ Q460061	Herbert%20Read.JPG
 Q460095	Tonino%20Guerra%202011.JPG
 Q460109	Juan%20Marse%201.jpg
 Q460110	Hugo%20Kaun.jpg
+Q460121	Ana%20Paula%20Tavares%2C%20Festival%20Liter%C3%A1rio%20Internacional%20de%20%C3%93bidos%2C%202024.png
 Q460124	Jacques%20Callot.jpg
 Q460163	Siegfrieds%20death.jpg
 Q460180	Georgette%20Leblanc%20%28Sep%201921%29%2027.png
@@ -18160,6 +18178,7 @@ Q462604	Victor%20Segalen%20Noum%C3%A9a%201904.jpg
 Q462615	Geburtshaus%20Der%20Bildhauerin%20Emy%20Roeder%201890%20in%20Warzburg%201971%20in%20Mainz.jpg
 Q462629	James%20Jones%20%28From%20Here%20to%20Eternity%20photo%29.jpg
 Q462634	Photo%20de%20Vercors%20-%201970.jpg
+Q462649	Portrait%20Mohammed%20Dib.jpg
 Q462657	Grassi%20-%20Charles-Joseph%20de%20Ligne%20-%20Wallace%20Collection%20.jpg
 Q462662	Raymond%20roussel.jpg
 Q462666	L%C3%A9on%20Bloy%20-%20Dornac.jpg
@@ -18549,7 +18568,7 @@ Q476311	Maison%20ancienne%20de%20clamart.jpg
 Q476349	Heinrich%20Mann%20Der%20Untertan%20%281918%29.jpg
 Q476627	Steger%2CHans-Turmspringerin%2002.JPG
 Q476871	JackLondoncallwild.jpg
-Q477155	Einzug%20des%20Senats%20in%20das%20neue%20Rathaus%20am%2026.10.1897%2C%20Hugo%20Vogel%20edit.jpg
+Q477155	HH%20Damals%20%E2%80%93%20Hugo%20Vogel%20%E2%80%93%20Senat%20%E2%80%93%201897.jpg
 Q477230	Johann%20Christian%20Lobe.jpg
 Q477246	Nuremberg%20chronicles%20-%20Hatto%2C%20Archbishop%20of%20Mainz%20%28CLXXXIIv%29.jpg
 Q477262	Lille%20museum%20histoire%20naturelle%20Barrois.JPG
@@ -18793,7 +18812,6 @@ Q501395	Andreas%20von%20Buzzi%20Litho%20%28cropped%29.jpg
 Q501542	USDA%20Bldg.%2C%20Washington%2C%20D.C.%20IMG%204787.JPG
 Q501758	Dsg%20UF%20Reitz%20Union%2020050507.jpg
 Q501841	Turun%20yliopisto.jpg
-Q501851	Alexandria%27s%20Bibliotheca.jpg
 Q501880	Bernard%20Lewis%20in%202012%20%281%29.JPG
 Q501928	Andrei%20Corbea%20Hoi%C8%99ie.JPG
 Q502041	Andrei%20Bitov.jpg
@@ -18899,7 +18917,7 @@ Q507154	Novartis%20Campus%20-%20Novartis%20Pavillon%20%2853992600334%29.jpg
 Q507381	%D0%A4%D1%83%D1%80%D0%BC%D0%B0%D0%BD%D0%BE%D0%B2%2C%20%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9%20%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B5%D0%B2%D0%B8%D1%87%20001.png
 Q507504	Bruno%20K.%20%C3%96ijer%20in%202022%2005.jpg
 Q507651	Nikolay%20Grech.jpg
-Q507699	Edward%20Young%20Poet.jpeg
+Q507699	Dr.%20Edward%20Young%2C%20PA06178.jpg
 Q507774	Silvestre%20de%20Sacy.jpg
 Q507789	Italo%20Montemezzi%20cph.3b21397.jpg
 Q507825	Portrait%20of%20Sebald%20Beham.jpg
@@ -18968,7 +18986,7 @@ Q511513	Uex%20photo%20full.jpg
 Q511752	Lucas-vis-1330882821.jpg
 Q511795	Portrait%20de%20Jacques%20Touchet%2C%20illustrateur.jpg
 Q511885	Honor%20Frost.jpg
-Q512062	Krasznahorkai%20L%C3%A1szl%C3%B3%20%28D%C3%A9ri%20Mikl%C3%B3s%29.jpg
+Q512062	Krasznahorkai%20L%C3%A1szl%C3%B3%20portrait.jpg
 Q512133	Boismortier.jpg
 Q512168	Giora%20Feidman%2011%202010a.jpg
 Q512506	Mariusz%20Szczygie%C5%82%20%282024%29%20III.jpg
@@ -19349,6 +19367,7 @@ Q536075	Angelo%20Jank.jpg
 Q536113	Myriam%20Bru%20dans%20V%20du%207%20janvier%201951.png
 Q536163	Hochschule%20f%C3%BCr%20Musik%20Franz%20Liszt%20Weimar.jpg
 Q536185	The%20portrait%20of%20Teodor%20Currentzis%20on%20the%20backstage%20of%20PermOpera.%202015.jpg
+Q536190	G%C3%BCnter%20Fruhtrunk%201975%20%28cropped%29.jpg
 Q536216	Georg%20Scholz%2C%20Selbstportr%C3%A4t%20vor%20der%20Litfa%C3%9Fs%C3%A4ule%2C%201926.jpg
 Q536350	Jessica%20Durlacher%20%282017%29.jpg
 Q536370	Litsa%20spathi-1549782540.JPG
@@ -20210,7 +20229,7 @@ Q583814	Ricardo%20Piglia.jpg
 Q583868	Victorduruy.jpg
 Q584010	Alan%20Bush%20%28Bundesarchiv%20Bild%20183-13756-0002%29.jpg
 Q584010	Bundesarchiv%20Bild%20183-13756-0002%2C%20Berlin%2C%20Arbeiterkonferenz%20der%20Schriftsteller%20und%20Komponisten.jpg
-Q584017	Semperoper%20at%20night.jpg
+Q584017	S%C3%A4chsische%20Staatskapelle%20Dresden%20Christian%20Thielemann%20%28c%29%20Matthias%20Creutziger.jpg
 Q584292	Louis%20Viardot%20bt%20Etienne%20Carjat.png
 Q584294	Kosmos%20-%20Bind%202.djvu
 Q584556	Primer%20romancero%20gitano%201924-1927%20Lorca.jpg
@@ -20348,7 +20367,7 @@ Q599000	%C3%96sterreichischer%20Filmpreis%202013%20C%20Antonin%20Svoboda.jpg
 Q599279	Antonino%20Votto.jpg
 Q599279	Photo%20The%20conductors%20Antonino%20Votto%20on%20the%20left%2C%20and%20Gianandrea%20Gavazzeni%20on%20the%20right%201963%20-%20Touring%20Club%20Italiano%2011%205345.jpg
 Q599737	Sylenus%20Marsyas%20hanging%20-%20Louvre%20Ma542.jpg
-Q599801	L%C3%A9on-Paul%20Fargue%2C%20Maurice%20Ravel%2C%20Georges%20Auric%2C%20Paul%20Morand.jpg
+Q599801	Portrait%20de%20L%C3%A9on-Paul%20Fargue%20par%20Raymond%20Woog.jpg
 Q599858	Antonio%20Beccadelli%2C%20Panormita.png
 Q599936	Antonio%20Bertoloni.jpg
 Q600222	Petr%20Zelenka%20%282018%29.jpg
@@ -22077,6 +22096,7 @@ Q734764	Main%20Walkway%2C%20Lower%20campus%20UNSW.jpg
 Q734774	Slu%20dubourg%201888.jpg
 Q734835	Friedrich%20Naumowitsch%20Gorenstein%20%281994%29%20by%20Guenter%20Prust.jpg
 Q734901	Alexander%20Serafimovich.jpg
+Q734930	Edo%20de%20Waart%20in%202008.jpg
 Q734944	Clifford%20Odets-signed.jpg
 Q734955	Robinson%20Jeffers.jpg
 Q735044	Alexander%20Heinrich%20Neus%2C%20August%20Georg%20Wilhelm%20Pezold%2C%20AM%2012920%20G%201017.tif
@@ -22227,6 +22247,7 @@ Q758132	Attilio%20Bertolucci.jpeg
 Q758575	1903%20Pissarro%20Aucassin%20et%20Nicolette.jpg
 Q758657	Auckland%20War%20Memorial%20Museum%20in%202021%20%28cropped%20square%29.jpg
 Q759377	J%C3%BCnger%2C%20Ernst%20-Auf%20den%20Marmorklippen%2C1939.jpg
+Q760054	Virginio%20Puecher%20-%20bozzetto%20per%20Ascesa%20e%20caduta%20della%20citt%C3%A0%20di%20Mahagonny%20di%20Kurt%20Weill%20%281971%29%20-%20Archivio%20Storico%20Teatro%20Regio%20Torino%20WIKITRT0045%20%28cropped%29.jpg
 Q760558	Augsburger%20Puppenkiste%2001.JPG
 Q760642	August-Macke-Haus%20Bonn.jpg
 Q760840	August%20Babberger%20Selbstbildnis%201912.png
@@ -22263,6 +22284,7 @@ Q761934	August%20Holmberg.JPG
 Q761962	August%20Hornbostel%20Kriehuber.jpg
 Q761983	Robert%20Byron%201923%20%28cropped%29.jpg
 Q762182	WP%20August%20Josef%20Ludwig%20von%20Wackerbarth.jpg
+Q762204	Photo%20-%20August%20Junker%20-%20als%20Dienstmann%20-%20um%201910.jpg
 Q762207	Die%20Gartenlaube%20%281877%29%20b%20440.jpg
 Q762225	KadenAugust.jpg
 Q762266	Harris%20Hall%201589%20Amst%20Av%20jeh.jpg
@@ -22522,6 +22544,7 @@ Q807627	Barbara%20Schulthess.jpg
 Q807637	Barbara%20Sichtermann%20privat.jpg
 Q807659	Barbara%20Suchner.jpg
 Q807665	Barbara%20Thalheim%20Waldeck%202017%200160.jpg
+Q807675	Barbara%20vinken%20leipziger%20buchmesse%202025.jpg
 Q807700	Barbara%20Wussow%20Wien2008.jpg
 Q807706	Barbara%20Zeman.jpg
 Q808386	Hospital%20Juan%20Grande%20-%20IMG%2020200630%20102930%20362.jpg
@@ -22551,7 +22574,7 @@ Q812285	Direktion%20der%20Bayerischen%20Staatsgem%C3%A4ldesammlungen%20-%20Schil
 Q812286	Bayerische%20Staatskanzlei%20Ausschnitt.jpg
 Q812296	Studierende%20an%20der%20Bayerischen%20Theaterakademie%20August%20Everding%2008.jpg
 Q812396	Bayerisches%20Armeemuseum%20Eingang%20hoch.jpg
-Q812403	GER%20M%C3%BCnchen%2C%20Ludwigstra%C3%9Fe%20005.jpg
+Q812403	Bayerisches%20Hauptstaatsarchiv%20in%20M%C3%BCnchen.jpg
 Q812412	M%C3%BCnzhof-M%C3%BCnchen.jpg
 Q812420	Bayerisches%20Landesamt%20f%C3%BCr%20Statistik%20und%20Datenverarbeitung%20%2813031615955%29.jpg
 Q812427	Bayerisches%20Landeskriminalamt%20Muenchen-1.jpg
@@ -23053,6 +23076,7 @@ Q871313	Csekonics%20J%C3%B3zsef-001.jpg
 Q871369	Salzburg%20Mozarteum%202008.jpg
 Q871444	Edmond%20Michelet%20em%20visita%20ao%20Brasil%20%281960%29.tif
 Q871490	Strong%20Hans%20-%20Anne%20Anderson.jpg
+Q871502	Hans%20Bohrdt.jpg
 Q871581	Hh-ernst-barlach-haus.jpg
 Q871643	Hermes%20Phettberg.jpg
 Q871671	Die%20Meininger%20Hofkapelle%20w%C3%A4hrend%20eines%20Sinfoniekonzerts%2C%20dirigiert%20von%20Generalmusikdirektor%20Philippe%20Bach.jpg
@@ -23324,6 +23348,7 @@ Q886890	Oskar%20Kraus.png
 Q887259	Miroslav%20Antic%20-%20Spomenik%20Novi%20Sad%20Dunavski%20park%20%28rad%20P.%20R%29.jpg
 Q887341	Bo%20Beskow%2C%20foto%20-%20Jan%20de%20Meyere.jpg
 Q887417	Bo%20Lidegaard.jpg
+Q887442	Bo%20Skovhus%2C%20Berlin%202010.jpg
 Q887592	Kuruta%20Dmitry%20Dmitrievich.jpg
 Q887826	Bob%20Brier%20in%20Sudan.jpg
 Q887892	Paul%20V%20McNutt%20Oct%201941.jpg
@@ -23898,6 +23923,7 @@ Q963055	Shaporin%20Yu.A.jpg
 Q963091	Steinberg%20Pinchas.jpg
 Q963372	Gudbergur%20Bergsson.jpg
 Q963467	Marmier%2C%20Xavier%2C%20par%20Truchelut%2C%20BNF%20Gallica.jpg
+Q963625	Lloyd%20Jones%20writer.jpg
 Q963715	MRJames1900.jpg
 Q963727	Mark%20Damezewski%20by%20David%20Shankbone%201.jpg
 Q963930	Johan%20Theorin%20G%C3%B6teborg%20Book%20Fair%202011.jpg
@@ -24108,6 +24134,7 @@ Q982677	Monxa%20Sert%2C%20Penrose%2C%20Calder%2C%20Maria%20Llu%C3%AFsa%20Borr%C3
 Q982717	FrankDikotter2013.jpg
 Q982729	Oguzataybust.png
 Q982835	Dmytro%20Zelenin.jpg
+Q982838	Sabahattin%20Ali%2C%20date%20and%20location%20unknown.jpg
 Q982848	Orhan%20Veli%20KANIK.jpg
 Q982880	Williaminge%20%28cropped%20and%20cleaned%29.jpg
 Q982883	Rear%20Adm.%20Samuel%20Eliot%20Morison%20USNR.jpg
@@ -25073,6 +25100,7 @@ Q1125695	Robert%20Ardrey.jpg
 Q1126746	Portret%20van%20Busken%20Huet%20%2C%20RP-T-1957-363.jpg
 Q1126804	LenbachConradGeyer.jpg
 Q1126849	Conrad%20Keller%201848-1930.jpg
+Q1126880	Spohr%20Faust%20in%20London.jpg
 Q1126917	Conrad%20Matschoss.jpg
 Q1126924	Hirzelmelchior.jpg
 Q1127025	Conrad%20Weitbrecht%2C%20Selbstbildnis%2C%20um%201820.jpg
@@ -25161,7 +25189,6 @@ Q1140265	The%20Royal%20Dramatic%20Theatre%20in%20Stockholm.jpg
 Q1140278	Quilapay%C3%BAn%20%28cropped%29.jpg
 Q1140407	SIPRI%20building.jpg
 Q1140408	Cristina%20Rivera%20Garza.jpg
-Q1140408	TaigaCCM10%20%28cropped%29.JPG
 Q1140507	Main%20entrance%2C%20Ny%20Carlsberg%20Glyptotek.jpg
 Q1140743	Joao%20Ubaldo%20Ribeiro.jpg
 Q1140775	EliotHallReedCollege.jpg
@@ -25336,6 +25363,7 @@ Q1169913	De%20Goethe%20Werke%20LH%2015%20213.jpg
 Q1169913	M%C3%A4hrchen.%20Die%20Horen.%204%20%3D%20Jg.%201%2C%20St%C3%BCck%2010-12.%201795.%20S.%20108%20%280114%29.jpg
 Q1170032	Au%20Bonheur%20des%20Dames%20manuscript.jpg
 Q1170070	PhilippLersch200.jpg
+Q1170183	Kunstverlag%20W.%20Springer%20S%C3%B6hne%201915%20Das%20Riesenfr%C3%A4ulein%20von%20Burg%20Nideck.jpg
 Q1170490	TagebuchTitelblatt.jpg
 Q1170491	Walter%20Scheels%20%282009%29%20by%20Guenter%20Prust.jpg
 Q1170560	Paris%20-%20Salon%20du%20livre%202012%20-%20Philippe%20Grimbert%20-%20002.jpg
@@ -25533,6 +25561,7 @@ Q1205462	Deutscher%20Volkshochschul-Verband%2C%20VHS-Logo%20-%20Logo%20of%20the%
 Q1205539	Winckelmann-Vortrag%20im%20Lesesaal%20des%20DAI%2C%20Abteilung%20Istanbul.jpg
 Q1205576	DNB2012.JPG
 Q1205629	Deutsches%20Filmmuseum%20Frankfurt.jpg
+Q1205638	DFOB%202025%2002.jpg
 Q1205644	Deutsches%20Freimaurermuseum%20%28Schild%29.jpg
 Q1205693	Deutsches%20Herzzentrum%20Muenchen.jpg
 Q1205699	German%20Historical%20Institute%20London%205%20Dec%202016.jpg
@@ -26113,6 +26142,7 @@ Q1264337	Giulio%20Einaudi.gif
 Q1264515	Bundesarchiv%20Bild%20102-07917%2C%20Alfred%20Colsmann.jpg
 Q1264643	Barbara%20Kingsolver%20%2848684513758%29%20%28cropped%29.jpg
 Q1264729	Dulce%20Maria%20Cardoso%20%28FOLIO%20-%20Festival%20Liter%C3%A1rio%20Internacional%20de%20%C3%93bidos%202019%29.png
+Q1264766	Misja%20Mengelberg%20%281968%29.jpg
 Q1264776	1898-11-05%2C%20Blanco%20y%20Negro%2C%20En%20la%20Mancha%2C%20Dulcinea%20del%20Toboso%2C%20Cecilio%20Pla%20%28cropped%29.jpg
 Q1264816	Janko%20polic%20kamov.jpg
 Q1264831	Manfred%20Prisching%20-%20Buch%20Wien%202023.JPG
@@ -26568,6 +26598,7 @@ Q1309555	Paul%20Hinneberg%20-%20K%C3%BCrschners%20Literatur-Kalender%201908.jpg
 Q1309642	%C3%96sterreichischer%20Kabarettpreis%202011%20%2814%29%20Ernst%20Stankovski%20%28cropped%29.jpg
 Q1309873	Kastura%20thomas2008.jpg
 Q1309936	Felicitas%20von%20Lovenberg.jpg
+Q1309970	Guy%20Hocquenghem%20%281983%29.jpg
 Q1310039	Stadtarchiv%20Hannover%20Turm.jpg
 Q1310271	Rauchinger-Zoff.jpg
 Q1310400	MJKr01495%20Nilam%20Farooq%20%28NRW-Empfang%2C%20Berlinale%202020%29.jpg
@@ -26633,7 +26664,7 @@ Q1318892	Kurt%20K%C3%BCchler%201918%20%28Foto%20G.%20Buber%29.jpg
 Q1318901	Quappi%20con%20su%C3%A9ter%20rosa%20%28Max%20Beckmann%2C%201932%E2%80%941934%29.jpg
 Q1318940	Georges%20No%C3%ABl%20dans%20son%20atelier%201990.jpg
 Q1319073	Innsbruck-Alpenzoo-Haupteingang.JPG
-Q1319177	Vista%20a%C3%A9rea%20de%20la%20Biblioteca%20Nacional%20Argentina.jpg
+Q1319177	Vista%20a%C3%A9rea%20de%20la%20Biblioteca%20Nacional%20de%20la%20Rep%C3%BAblica%20Argentina%20Mariano%20Moreno%2002.jpg
 Q1319378	Mus%C3%A9e%20des%20Arts%20D%C3%A9coratifs%202009%20001.jpg
 Q1319977	R.%20Hagengruber.jpg
 Q1320018	J.%20J.%20Preyer.jpg
@@ -26751,6 +26782,7 @@ Q1330663	Elise%20von%20Hohenhausen%2C%201822%2C%20Zeichnung%20von%20Wilhelm%20He
 Q1330719	Lilo%20Beil%2C%20Neckarsteinach%2C%205.3.23.jpg
 Q1330933	WP%20Felix%20Schwormst%C3%A4dt.jpg
 Q1331194	Elizabeth%20Duncan%20portrait%20photograph.jpg
+Q1331244	Elizabeth%20Jenkins%20in%201934.jpg
 Q1331312	Elizabeth%20Anderson%2C%20philosopher%20%28cropped%29.jpg
 Q1331314	Elizabeth%20Shaw%20%281989%29%20by%20Guenter%20Prust.jpg
 Q1331319	Rolf%20Ludwig.jpg
@@ -27145,7 +27177,7 @@ Q1356416	Heinrich%20Gemkow.jpg
 Q1356463	Sten%20Selander%20AB.jpg
 Q1356476	Ernest%20Newman.jpg
 Q1356488	Swedish%20painter%20Richard%20Bergh.jpg
-Q1356523	Alhierd%20Bacharevi%C4%8D.jpg
+Q1356523	Alhierd%20Bacharevi%C4%8D%20%282025%29.jpg
 Q1356620	E.C.%20Reiske.jpg
 Q1356645	Ernestinenschule.JPG
 Q1356800	SAI%20Heidelberg.JPG
@@ -29298,6 +29330,7 @@ Q1534156	Goethe-Schiller-Archiv%20Weimar.JPG
 Q1534191	Goethehaus.jpg
 Q1534215	Knut%20Elstermann%20%28Berlin%20Film%20Festival%202009%29.jpg
 Q1534549	KAS-Gra%C3%9F%2C%20Karl-Martin-Bild-1805-2.jpg
+Q1534569	Hans%20Pischner.jpg
 Q1534573	Staffordshire%20University%2C%20College%20Road%2C%20Stoke%20-%20geograph.org.uk%20-%20332924.jpg
 Q1535021	Thomas%20Kaufmann%20%28historian%29%202015.JPG
 Q1535031	Martin%20Willich%20-%20Deutscher%20Radiopreis%20Hamburg%202016%2001.jpg
@@ -29614,6 +29647,7 @@ Q1561959	G%C3%BCnther%20Z%C3%A4uner%20-%20Wiener%20Buchmesse%202017.JPG
 Q1562024	Hein%20Driessen%20PM16.jpg
 Q1562208	G%C3%BCtersloher%20Verlagshaus%20Am%20Oelbach.jpg
 Q1562353	G%C3%BCzin%20Kar%202016.jpg
+Q1562479	Jean%20Bungartz%20p1895.jpg
 Q1562578	Knape-Foto1.jpg
 Q1562681	Re%20publica%2019%20-%20Day%202%20%2847746012192%29.jpg
 Q1562872	Uli%20Hannemann-001.jpg
@@ -30193,6 +30227,7 @@ Q1601015	Heinz%20Stein%2020130401.JPG
 Q1601016	Steinert.JPG
 Q1601036	Heinz%20strunk%20salzburg.jpg
 Q1601076	H.Troekes.HH.57.jpg
+Q1601081	Heinz%20Ullstein.jpg
 Q1601164	Wirth%20heinz%20willi.jpg
 Q1601166	Bundesarchiv%20Bild%20183-T00411%2C%20Berlin%2C%20Robert%20Havemann%20vor%20Humboldt-Universit%C3%A4t.jpg
 Q1601200	Heinz%20Zahrnt-01%20retouched.jpg
@@ -30330,6 +30365,7 @@ Q1608442	Herbert%20Herrmann.jpg
 Q1608483	Herbert%20Hrachovec.jpg
 Q1608503	Fotothek%20df%20pk%200000228%20013.jpg
 Q1608577	Bundesarchiv%20Bild%20183-14620-0003%2C%20Berlin%2C%20Arbeitstagung%20DDR-Schriftstellerverband.jpg
+Q1608590	Angelika%20Kauffmann%20Bildnis%20Johann%20Isaak%20Freiherr%20von%20Gerning.jpg
 Q1608603	Guido%20Menasci.jpg
 Q1608655	Bundesarchiv%20B%20145%20Bild-F041444-0014%2C%20Hamburg%2C%20CDU-Bundesparteitag.jpg
 Q1608681	Herbert%20K%C3%B6fer%202008%20%28aka%29.jpg
@@ -30419,7 +30455,7 @@ Q1612460	Hermann%20Reuter%2020%2006%201950.jpg
 Q1612464	Reuter-hermann-in-voit-max-hrsg-bildnisse-goettinger-professoren-goettingen-vandenhoeck-und-ruprecht-1937-nr150.jpg
 Q1612496	Hermann%20Roemer.jpg
 Q1612579	Hermann%20Scherer%20%28Autor%29%20%28cropped%29.jpg
-Q1612600	Edvard%20Munch%20-%20Hermann%20Schlittgen%20-%20MM.M.00367%20-%20Munch%20Museum.jpg
+Q1612600	Hermann%20Schlittgen%20-%20Selbstbildnis%2C%201926.png
 Q1612603	Hermann%20Schl%C3%B6sser%20-%20Buch%20Wien%202024.JPG
 Q1612647	Hermann%20Schneider.jpg
 Q1612686	Hermann%20Schulz%20Engelsfest%20Wuppertal%202013%20033%20DxO.jpg
@@ -32283,7 +32319,7 @@ Q1758009	Mrongowiusz%20na%20tle%20Wydzia%C5%82u%20Biologii%20UG.JPG
 Q1758102	Michael-hagner-senckenberg-museum-2012-ffm-332.jpg
 Q1758474	Palazzo%20dell%27Universit%C3%A0%20%28Parma%29%20-%20facciata%202017-04-06.jpg
 Q1758879	Maja%20Beckmann09.jpg
-Q1759536	Tommy%20Krappweis%202012-03-13.JPG
+Q1759536	MKr390632%20Tommy%20Krappweis%20%28WikiCon%202025%29%20%28cropped%29.jpg
 Q1760438	Frese%20Hall.JPG
 Q1760476	Walter%20Rossow.jpg
 Q1760791	Middlesex%20University%20Hendon%20Campus.jpg
@@ -33361,6 +33397,7 @@ Q1955485	Muhsin%20Omurca-Cartoonist%20%28Foto%20honorarfrei%29.jpg
 Q1955739	Dijon%20-%20Musee%20des%20Beaux%20arts.jpg
 Q1955758	Mudam%2004%20jnl.jpg
 Q1955865	Alphonse%20Henri%20d%27Hautpoul.jpg
+Q1956580	Myk%20Jung%20IMGP2980%20smial%20wp.jpg
 Q1956769	Benefiz-Lesung%20zu%20Gunsten%20Historisches%20Archiv%20der%20Stadt%20K%C3%B6ln-7441.jpg
 Q1957463	Witten%20M%C3%A4rkisches%20Museum%202.jpg
 Q1957727	Mery%20Laurent%20001.jpg
@@ -34523,6 +34560,7 @@ Q2268848	Simkin.jpg
 Q2269089	Semier%20Insayif%2003.jpg
 Q2269411	Opdracht%20GPD%20forum%20in%20Arti%20et%20Amicitiae%20%2C%20profdr%20G%20Stuiveling%20%2C%20kop%2C%20Bestanddeelnr%20930-8973.jpg
 Q2270219	Francisco%20de%20Moncada%2C%20Marqu%C3%A9s%20de%20Aytona%2C%20by%20Anthonis%20van%20Dyck.jpg
+Q2270779	R%C3%B3tterdam14%20%2815007002076%29.jpg
 Q2271135	Jan%20Franken%20Pzn.%20in%20z%27n%20Haagsche%20atelier%2C%201928.jpg
 Q2271183	Dino%20Campana.jpg
 Q2271211	Campo%20Marzio%20-%20Palazzo%20Firenze%20cortile%201190751.JPG
@@ -35145,7 +35183,6 @@ Q2458885	Tube-001.jpg
 Q2459284	%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B4%D0%BE%D1%81%D0%BA%D0%B0%20%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%B0%20%D0%93%D0%B0%D0%BB%D0%B8%D1%87%D0%B0%20%28%D0%93%D0%B8%D0%BD%D0%B7%D0%B1%D1%83%D1%80%D0%B3%D0%B0%29.jpg
 Q2459332	Borstbeeld%20Obe%20Postma.JPG
 Q2459813	Ictus%20Ensemble%20%282017%29.jpg
-Q2460130	Willem%20Jacob%20Rozendaal%2C%20zelfportret%201950%2C%20K1663-A.jpg
 Q2460930	Andrea%20Maffei.jpg
 Q2461189	L%C3%BAcio%20Cardoso%20%281965%29.tiff
 Q2461946	Tuvia%20Tenenbom.jpeg
@@ -36875,7 +36912,7 @@ Q3133152	Henry%20White%20cph.3a36597%20%283x4a%29.jpg
 Q3133221	50%20anys%20Premi%20d%27Honor%20de%20les%20Lletres%20Catalanes%20DC92115%20%2845133474724%29.jpg
 Q3134091	Herman-Shumlin-1931.jpg
 Q3134490	Herv%C3%A9%20FischerWSSF2013%2001.JPG
-Q3135589	Hilda%20Hilst%20na%20Casa%20do%20Sol%201998.jpg
+Q3135589	Hilda%20Hilst%20by%20Chico%20Albuquerque.jpg
 Q3135913	University%20of%20Pune%2C%20Pune.jpg
 Q3136165	Hippolyte%20de%20Villemessant%20%28Nadar%29.png
 Q3136439	Vlado%20Maleski%20spomenik.JPG
@@ -37567,7 +37604,7 @@ Q3483946	Nalimov%20Vasiliy%20Vasilievich.jpg
 Q3484040	Silvia%20Baron%20Supervielle.jpg
 Q3484538	Simone3.jpg
 Q3485804	Ireneusz%20Iredynski2.jpg
-Q3487185	Sofija%20Andruchowycz%202015.jpg
+Q3487185	Sofija%20Andruchowytsch%20-%20Buch%20Wien%202024.JPG
 Q3487228	Ramsey%20Nasr%2C%20Nederlands%20dichter.jpg
 Q3488440	SIAE%20sede%20centrale%20Roma.jpg
 Q3490819	Sophia%20Peabody%20by%20Chester%20Harding%20%28PEM%202016.59.1A%29%20-%20crop.jpg
@@ -38541,6 +38578,7 @@ Q4690353	Afr%C3%A2nio%20Coutinho%2C%20Acad%C3%AAmico%20da%20Academia%20Brasileir
 Q4692482	Agi%20Mishol%20by%20Iris%20Nesher.jpg
 Q4694668	Diaz%20Pacheco.jpg
 Q4695887	Ahmed%20Khaled%20Tawfik.jpg
+Q4696709	Aidan%20Higgins.jpg
 Q4704499	Kazimierz%20Wyka.jpg
 Q4704621	Toronto%20Al%20Purdy%20Memorial%2002.jpg
 Q4706765	Frank%20Capra%20%26%20Alan%20Greenberg.jpeg
@@ -39911,6 +39949,7 @@ Q7377219	Rudolf%20Jansen.jpg
 Q7377264	Rudolf%20Marloth.jpg
 Q7377374	Rudolf%20von%20Willemoes-Suhm.jpg
 Q7378697	Rui%20Cardoso%20Martins%20%28FOLIO%20-%20Festival%20Liter%C3%A1rio%20Internacional%20de%20%C3%93bidos%202019%29.png
+Q7383143	RuthNandaAnshen.jpg
 Q7384006	Ryan%20David%20Jahn%202009.jpg
 Q7386944	RuzenaGrebenickova.jpg
 Q7397408	Sacvan%20Bercovitch.jpg
@@ -40001,6 +40040,7 @@ Q7781630	Theodor%20Waitz%20%281821%E2%80%931864%29.png
 Q7782031	Theodor%20Scherer-Boccard.JPG
 Q7782052	Theo.%20Stanton%20LCCN2014686091.jpg
 Q7782099	Theodore%20Wesley%20Koch%20passport%20application%20%28cropped%29.jpg
+Q7788539	Thomas%20Colley%20Grattan%20-%20The%20author%20of%20Highways%20and%20byeways.%20%28NYPL%20Hades-255356-431264%29%20%28cropped%29.jpg
 Q7789603	Thomas%20Fisher%20Unwin%20%281848%E2%80%931935%29.png
 Q7789934	Thomas%20Garnett%20b1766.jpg
 Q7790413	Thomas%20Harding.jpg
@@ -40743,7 +40783,7 @@ Q12747432	Palanski%202015.JPG
 Q12747773	Jovan%20Hristi%C4%87%20Vava.tif
 Q12755294	Milan%20Bogdanovi%C4%87%201953.jpg
 Q12757217	%D0%9F%D0%B5%D1%82%D0%B0%D1%80%20%D0%A1%D0%B0%D1%80%D0%B8%D1%9B.jpg
-Q12758605	Sasa%20Ilic%20u%20Pirotu%2001.jpg
+Q12758605	Sasa%20Ilic%20photo%20by%20Jetmir%20Idrizi.jpg
 Q12762314	V%C3%BDbor%20Matice%20slovenskej%20v%20Kantorskej%20doline%20%28z%C4%BEava%20Vladim%C3%ADr%20Reisel%2C%20Pavol%20Pa%C5%A1ka%2C%20Andrej%20Pl%C3%A1vka%20a%20%C5%A0tefan%20Haviar%29.jpg
 Q12766426	Otto%20Gottfried%20von%20L%C3%BCtgendorf-Leinburg%20001.JPG
 Q12771514	Michal%20Eli%C3%A1%C5%A1.jpg
@@ -42649,6 +42689,7 @@ Q19193516	Emma%20Wuttke-Biller%20001.JPG
 Q19196110	Wiesbaden%20Denkmal%20Ferdinand%20Hey%27l%20%281%29%20%28cropped%29.JPG
 Q19197226	Friedrich%20Althaus%20%28cropped%29.jpg
 Q19197350	Die%20Gartenlaube%20%281880%29%20b%20077.jpg
+Q19197429	1850er%20Jahre%20circa%20anonyme%28r%29%20Zeichner%28in%29%20Klindworth%27s%20Hof-Druckerei%20Portrait%20Brustbild%20Friedrich%20Voigts%2C%20Freimaurer%20in%20Hannover%20%28Ausschnitt%29.jpg
 Q19197456	Wintterlin-friedrich-in-zum-25jaehrigen-jubilaeum-der-stuttgardia-1869-1894-stuttgart-kohlhammer-1894-s74.jpg
 Q19198517	Titelblatt%20Gedichte%20Theodor%20Fontane.jpg
 Q19203561	Edin%20Hasanovic%2C%20Thomas%20Stuber%2C%20Peter%20Kurth%20%282014%29.jpg
@@ -43620,7 +43661,6 @@ Q23710210	Hannes%20Mercker.jpg
 Q23710231	Moritzvontreuenfels2021.jpg
 Q23710431	Pierre%20Jarawan%20%2830966349406%29%20%28cropped%29.jpg
 Q23710566	Christian%20Leberecht%20Heyne.jpg
-Q23719707	Ignatius%20Liebel.jpg
 Q23726779	Leopold%20Alois%20Hoffmann.jpg
 Q23732733	Fritz%20hafner%201877-1964.jpg
 Q23747434	Cem%20Kaya%20Max-Oph%C3%BCls-Preis%202015%202.jpg
@@ -44456,7 +44496,7 @@ Q34749129	Flora%20Petrik.jpg
 Q34772826	Hedemann%20H%20J%20C.png
 Q35052999	Gro%C3%9Findustrie%20Sachsen%20T2%200176.jpg
 Q35115548	Portr%C3%A4t%20des%20Verlegers%20Rudolf%20Oldenbourg.jpg
-Q35153831	Pierre%20Bonnard%20-%20Enfants%20solfiants%2C%20Charles%20et%20Jean%20Terrasse.jpg
+Q35153831	Renoir%20-%20portrait-of-charles-terrasse.jpg%21PinterestLarge.jpg
 Q35555519	2017%20Deichbrand%20-%20Faber%20-%20by%202eight%20-%20DSC4047.jpg
 Q35659369	OestNicolausPPN745129749%2000000006.tif
 Q35713324	Edmund%20Engelman%2C%20Driver%27s%20License%20Photo%2C%201930.tif
@@ -44532,6 +44572,7 @@ Q41142954	Caroline%20Rosales.tif
 Q41164425	Miguel%20Valderrama%20Castillo%202018.jpg
 Q41170451	MJK54693%20Isabella%20Straub.jpg
 Q41187377	Vladimir%20Sedelnik.jpg
+Q41201850	Klaus-J%C3%BCrgen%20Sembach%202014.jpg
 Q41264521	Anna%20Susanna%20Fries%20Selbstportrait.jpg
 Q41278195	Christoph%20Haller%20von%20Hallerstein.jpg
 Q41327337	Fotothek%20-%20Matthias%20Werner%20Kruse%2C%20Schriftsteller.jpg
@@ -45225,6 +45266,7 @@ Q56238771	Stadtb%C3%BCcherei%20Innsbruck%20%28BT0A5059%29.jpg
 Q56245011	Walter%20Rupp.jpg
 Q56245513	2024%20Portret%20van%20Hans%20Wap%20in%20atelier%20Dr.%20H.%20Bavinkschool%2C%20Rotterdam.jpg
 Q56284990	Gudrun%20Lerchbaum.jpg
+Q56285042	2025-10-07%20Ulrich%20Breden%20beim%20Signieren%20eines%20seiner%20B%C3%BCcher%20bei%20Wikipedia%20Hannover.jpg
 Q56292275	Ail%C3%ADs%20N%C3%AD%20R%C3%ADain%2C%20Yaddo%2C%20USA%20in%202019.jpg
 Q56311403	Adeline%20Dieudonn%C3%A9%20-%202018%20%28cropped%29.jpg
 Q56314954	Marina%20Skalova.jpg
@@ -45728,6 +45770,7 @@ Q69413193	Moritz%20H%C3%BCrtgen-0639.jpg
 Q69448498	Ernst-adolf-von-die-wuerttembergische-industrie-heft03-oktober1907-s116.jpg
 Q69640793	Unterseher-Portr%C3%A4t%20%C3%96MZ.png
 Q69659747	Paula%20Kn%C3%BCpling%20auf%20der%20Berlinale%202019%20%28Archiv%29.jpg
+Q69765019	Sabine%20Mangold%2020250609.jpg
 Q69773659	Jos%C3%A9%20Rafael%20Herrera.jpg
 Q69805884	Lucas.L.Headshot.jpg
 Q70045927	Sascha%20Lange%20Nocturnal%20Culture%20Night%2015%202022%2003.jpg
@@ -45866,6 +45909,7 @@ Q83798479	Florian%20Hacke.jpg
 Q83800276	Heinrich%20Altherr%20Schriftsteller%201960.jpg
 Q83867474	Ein%20Portr%C3%A4tfoto%20der%20K%C3%BCnstlerin%20Helga%20Schager%2C%202020.jpg
 Q83875270	Fee%20Brembeck%202022.jpg
+Q83879444	Er%C3%B6ffnung%20der%20Ausstellung%20%22Zwangsr%C3%A4ume%22%20des%20Aktiven%20Museums%20im%20Roten%20Salon%20der%20Volksb%C3%BChne%2C%20Berlin%2C%20Oktober%202023.jpg
 Q84031404	Norbert%20Kr%C3%B6ll%20-%20Buch%20Wien%202024.JPG
 Q84080648	MahretIfeomaKupka%20c%20MarinaAckar.jpg
 Q84082093	Christian%20Baron%202023.JPG
@@ -45873,6 +45917,7 @@ Q84105106	Horst-G%C3%BCnter%20Rubahn%20-%20%C2%A9%20Patricio%20Soto%20%28cropped
 Q84153236	Der%20Autor%20Ren%C3%A9%20Steininger%20mit%20Katze.jpg
 Q84322562	Wolfgang%20von%20Bartels%201.png
 Q84340356	Katharina%20Pistor%20at%20Parallel%20Session%205%20%2811067559155%29.jpg
+Q84398383	Foto%20Brigitte%20S%C3%A4ndig.jpg
 Q84405148	Marcin%20Golaszewski%20Front.jpg
 Q84412018	Portret%20van%20de%20toneelschrijver%20Carl%20Sch%C3%BCler%2C%20SFA022828455.jpg
 Q84412474	Paul%20Steinm%C3%BCller.png
@@ -45943,6 +45988,7 @@ Q88778502	FranceNormandieCabourgVillaTempsRetrouveJEBlancheJeanneMauriac.jpg
 Q88968792	AGDE.png
 Q88977469	Im%20Reiche%20des%20silbernen%20L%C3%B6wen.jpg
 Q88978542	Mahbuba%20Elham%20Maqsoodi%2C%202020.jpg
+Q89032584	Anja%20Amend-Traut.jpg
 Q89208328	Anita%20R%C3%A9e%20Bildnis%20Agnes%20Holthusen%20im%20Profil%20nach%20links.jpg
 Q89209263	Wolfgang%20Beutin.jpg
 Q89343630	Hendrik%20Cornelius%20Rogge%20-%20Onze%20Hoogleeraren%20%281898%29.jpg
@@ -46003,6 +46049,7 @@ Q94528198	Eduard%20Stein%20Litho.jpg
 Q94542070	Arthur%20Stoll%20%28cropped%29.jpg
 Q94580400	ColognePride%202018-Samstag-Hauptb%C3%BChne-1600-Politblock-Verleihung%20Felix-Rexhausen-Preis-7706.jpg
 Q94633314	J.%20Eibach%202023%20Professor%20at%20University%20of%20Bern%20for%20History%20of%20the%20Early%20Modern%20Age.jpg
+Q94641876	Huberta%20von%20Bronsart%20im%20Gew%C3%A4chshaus%20in%20Hohenheim.jpg
 Q94644094	Nhi%20Le%202017.jpg
 Q94692466	Jan-Christoph%20Gockel%20Mz.jpg
 Q94700636	Portrait%20Thomas%20Franke.jpg
@@ -46042,6 +46089,7 @@ Q94762786	Clara%20Steinitz.png
 Q94763697	Hagen%20-%20Hohenhof%2017.JPG
 Q94763804	Stieler%2C%20List.jpg
 Q94764281	Alexander%20von%20Roberts%20001.JPG
+Q94765341	Max%20Reiner.jpg
 Q94766479	ETH-BIB-Frey%2C%20Karl%20%281942-2005%29-Portr%2014156.tif
 Q94766514	Johannes%20Diebold.jpg
 Q94766666	Martin%20ludwig%20flersheim%20frankfurt%20am%20main.jpg
@@ -46196,8 +46244,10 @@ Q95185885	Antonia%20Rahofer%20Crossing%20Europe%202023%20BHO%209919.jpg
 Q95187685	Salom%C3%A9%20Balthus%20%28cropped%29.jpg
 Q95189575	In%C3%A8s%20Keerl%20%282022%29%20%28cropped%29.jpg
 Q95189976	Verena%20Nolte%20Buchmesse%202014%20%2802%29.jpg
+Q95190304	Portrait%20Margot%20H.%20Koller.jpg
 Q95190310	Eva%20Sichelschmidt.jpg
 Q95190994	Annette%20Maennel%20%2838354686092%29.jpg
+Q95191436	Brigitte%20Bausinger%20im%20Literaturhaus%20Heilbronn.jpg
 Q95191445	Sabine%20Sommerkamp.jpg
 Q95191623	Charlotte%20von%20Wolzogen.%20Holzstich.jpg
 Q95192127	Avgerinos%20agdk%20lesung.jpg
@@ -46208,6 +46258,7 @@ Q95193642	Nora-abdel-maksoud-monacensia-2024.jpg
 Q95193648	BBee%20Sommer%202023%20privat%20Foto%202%20von%20Kerstin%20Marklofsky.jpg
 Q95193943	Poesiefestival%20Berlin%202023%20-%20Kathrin%20Schadt%2002.jpg
 Q95193944	Sabriye-Cemboluk.jpg
+Q95193967	Lydia%20Schieth%202023.jpg
 Q95194254	Gisela%20Achterberg%202024.jpg
 Q95194667	Angelika%20Arend%20Wiki.jpg
 Q95195603	Freiburg%20and%20Colonialism%20exhibition%2001.jpg
@@ -46280,6 +46331,7 @@ Q95228211	Hermann%20Carl%20Otto%20Huss%20%28fl.%201847%E2%80%931899%29.png
 Q95228871	Volker%20Matthies%20bij%20het%20Festival%20van%20de%20Journalistiek%202017%20%2837048989810%29.jpg
 Q95230770	Tom%20Turtschi%2C%202016.jpg
 Q95231033	Ingo%20Drzecnik.jpg
+Q95231904	Horst%20Scheffler.jpg
 Q95232332	Karsten%20Pruehl%20Portrait%202025.jpg
 Q95232869	Apresenta%C3%A7%C3%A3o%20de%20Simp%C3%B3sio%20Tem%C3%A1tico.jpg
 Q95234024	20180605wa9055.jpg
